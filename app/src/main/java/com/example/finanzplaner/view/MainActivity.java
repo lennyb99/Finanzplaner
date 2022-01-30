@@ -1,8 +1,10 @@
-package com.example.finanzplaner;
+package com.example.finanzplaner.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.finanzplaner.R;
 
 public class MainActivity extends AppCompatActivity {
 
