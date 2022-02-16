@@ -7,6 +7,7 @@ public class Verwaltung {
 
     private List<Ausgabe> ausgaben;
     private List<Einnahme> einnahmen;
+    
 
     public Verwaltung(){
 
