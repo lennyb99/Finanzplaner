@@ -6,25 +6,75 @@
     android:layout_height="match_parent"
     tools:context=".view.Dashboard">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button2"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
+    <ImageButton
+        android:id="@+id/addButton"
+        android:layout_width="88dp"
+        android:layout_height="88dp"
+        android:layout_marginBottom="28dp"
+        android:background="@android:color/transparent"
+        android:scaleX="2"
+        android:scaleY="2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/add_48"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <TextView
+        android:id="@+id/current_period"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:text="Januar 2022"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton3"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button"
+        app:layout_constraintStart_toEndOf="@+id/imageButton2"
         app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:background="@android:color/transparent"
+        android:rotation="-90"
+        android:scaleX=".5"
+        android:scaleY=".5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/current_period"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/angle_circle_down_48"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:background="@android:color/transparent"
+        android:rotation="90"
+        android:scaleX=".5"
+        android:scaleY=".5"
+        app:layout_constraintEnd_toStartOf="@+id/current_period"
+        app:layout_constraintHorizontal_bias="0.094"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/angle_circle_down_48"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <com.anychart.AnyChartView
+        android:id="@+id/any_chart_view"
+        android:layout_width="346dp"
+        android:layout_height="326dp"
+        android:layout_marginTop="56dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/current_period" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
