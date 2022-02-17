@@ -1,18 +1,24 @@
 package com.example.finanzplaner.model.finanzverwaltung;
 
+import com.example.finanzplaner.model.IObservable;
+import com.example.finanzplaner.view.IObserver;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Verwaltung {
+public class Verwaltung implements IObservable {
 
     private List<Ausgabe> ausgaben;
     private List<Einnahme> einnahmen;
-    
+
+    private List<IObserver> views;
+
 
     public Verwaltung(){
 
         ausgaben = new ArrayList<>();
         einnahmen = new ArrayList<>();
+        views = new ArrayList<>();
 
     }
 
@@ -31,4 +37,28 @@ public class Verwaltung {
     public void delEinnahme(String name){
 
     }
+
+    @Override
+    public void anmelden(IObserver view) {
+        views.add(view);
+
+    }
+
+    @Override
+    public void abmelden(IObserver view) {
+        views.remove(view);
+    }
+
+    @Override
+    public void benachrichtigeBeobachter() {
+        for (IObserver view: views) {
+            view.update();
+        }
+    }
+
+    @Override
+    public void gibAktuelleDaten() {
+
+    }
+
 }
