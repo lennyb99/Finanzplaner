@@ -3,15 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/layout/StartScreen.xml" value="0.375" />
-        <entry key="app/src/main/res/layout/UmsaetzeDetails.xml" value="0.14895833333333333" />
-        <entry key="app/src/main/res/layout/activity_dashboard.xml" value="0.24954710144927536" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/startscreen.xml" value="0.2006340579710145" />
+        <entry key="..\:/Users/Jonny/AndroidStudioProjects/Finanzplaner/app/src/main/res/layout/activity_main.xml" value="0.28804347826086957" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
