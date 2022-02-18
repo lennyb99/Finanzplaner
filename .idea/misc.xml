@@ -3,11 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/layout/StartScreen.xml" value="0.375" />
-        <entry key="app/src/main/res/layout/UmsaetzeDetails.xml" value="0.14895833333333333" />
-        <entry key="app/src/main/res/layout/activity_dashboard.xml" value="0.335" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/startscreen.xml" value="0.2006340579710145" />
+        <entry key="..\:/Users/Jonny/AndroidStudioProjects/Finanzplaner/app/src/main/res/layout/activity_main.xml" value="0.28804347826086957" />
       </map>
     </option>
   </component>
