@@ -13,10 +13,10 @@
             android:name=".view.AlleAusgaben"
             android:exported="false" />
         <activity
-            android:name=".view.Einnahme"
+            android:name=".view.EinnahmeView"
             android:exported="false" />
         <activity
-            android:name=".view.Ausgabe"
+            android:name=".view.AusgabeView"
             android:exported="false" />
         <activity
             android:name=".view.Action"
