@@ -11,6 +11,7 @@ import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -39,6 +40,7 @@ public class Dashboard extends AppCompatActivity implements IObserver{
         pieEntryList.add(new PieEntry(7,"UK"));
         pieEntryList.add(new PieEntry(3,"NZ"));
         PieDataSet pieDataSet = new PieDataSet(pieEntryList,"country");
+        pieDataSet.setColors(ColorTemplate.JOYFUL_COLORS);
         pieData = new PieData(pieDataSet);
         pieChart.setData(pieData);
         pieChart.invalidate();
