@@ -8,6 +8,7 @@
     tools:context=".view.Ausgabe">
 
 
+
     <Button
         android:id="@+id/bestaetigen"
         android:layout_width="wrap_content"
