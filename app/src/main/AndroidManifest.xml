@@ -9,7 +9,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Finanzplaner">
-        <activity android:name=".view.Dashboard"></activity>
+        <activity
+            android:name=".view.AlleAusgaben"
+            android:exported="false" />
+        <activity
+            android:name=".view.Einnahme"
+            android:exported="false" />
+        <activity
+            android:name=".view.Ausgabe"
+            android:exported="false" />
+        <activity
+            android:name=".view.Action"
+            android:exported="false" />
+        <activity android:name=".view.Dashboard" />
         <activity android:name=".view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

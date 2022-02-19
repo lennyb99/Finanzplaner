@@ -7,7 +7,7 @@
     tools:context=".view.Dashboard">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/buttAdd"
+        android:id="@+id/hinzufuegen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
@@ -15,7 +15,27 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/kuerzlich"
         app:layout_constraintVertical_bias="0.954"
         app:srcCompat="@android:drawable/ic_input_add" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/kuerzlich"
+        android:layout_width="333dp"
+        android:layout_height="208dp"
+        app:layout_constraintBottom_toTopOf="@+id/hinzufuegen"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/diagramm" />
+
+    <ImageView
+        android:id="@+id/diagramm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/kuerzlich"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
 </androidx.constraintlayout.widget.ConstraintLayout>
