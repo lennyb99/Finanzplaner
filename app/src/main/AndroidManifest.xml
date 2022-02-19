@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Finanzplaner">
         <activity
+            android:name=".view.DiagrammDetail"
+            android:exported="false" />
+        <activity
             android:name=".view.AlleAusgaben"
             android:exported="false" />
         <activity
