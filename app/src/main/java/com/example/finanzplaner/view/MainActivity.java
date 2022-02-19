@@ -3,6 +3,7 @@ package com.example.finanzplaner.view;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.finanzplaner.R;
@@ -17,9 +18,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         AppDatabase db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "AppDatabase").allowMainThreadQueries().build();
         EinnahmeDao ed = db.einnahmeDao();
         ed.insertEinnahmen(new Einnahme("Zeitung", true));
+
+
+
+        startActivity(new Intent(MainActivity.this,Dashboard.class));
 
     }
 }
