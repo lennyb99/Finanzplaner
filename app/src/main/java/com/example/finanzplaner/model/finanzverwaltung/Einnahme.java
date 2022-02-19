@@ -1,18 +1,58 @@
 package com.example.finanzplaner.model.finanzverwaltung;
 
+import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
 
 import java.util.Calendar;
 
 enum einnahmeKategorien {}
+
+@Entity (tableName = "income_table")
 public class Einnahme {
 
+    @PrimaryKey(autoGenerate = true) @NonNull
+    private int id;
     private String name;
-    private Calendar datum;
+    private String datum;
     private boolean repetetiv;
-    
-    public Einnahme(){
-        datum = Calendar.getInstance();
+
+    public Einnahme(String name, boolean repetetiv) {
+        this.name = name;
+        this.repetetiv = repetetiv;
+        datum = Calendar.getInstance().toString();
     }
 
+    public String getDatum() {
+        return datum;
+    }
 
+    public void setDatum(String datum) {
+        this.datum = datum;
+    }
+
+    public boolean isRepetetiv() {
+        return repetetiv;
+    }
+
+    public void setRepetetiv(boolean repetetiv) {
+        this.repetetiv = repetetiv;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }
