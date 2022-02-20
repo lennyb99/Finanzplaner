@@ -24,7 +24,6 @@ public class MyAdapter extends RecyclerView. Adapter<MyAdapter.ViewHolder> {
 
 
     Context context;
-    Verwaltung verwaltung = new Verwaltung();
     ArrayList<String> name;
     private ArrayList<Float> betrag;
     private ArrayList<String> datum;
@@ -44,12 +43,7 @@ public class MyAdapter extends RecyclerView. Adapter<MyAdapter.ViewHolder> {
         context = recyclerView.getContext();
     }
 
-    private void ertelleListen(List einnahmen) {
 
-
-        List<Einnahme> name = verwaltung.getEinnahmen();
-
-    }
 
     @NonNull
     @Override
