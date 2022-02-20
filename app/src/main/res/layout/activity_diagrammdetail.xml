@@ -8,15 +8,18 @@
     tools:context=".view.DiagrammDetail">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="308dp"
-        android:layout_height="67dp"
+        android:id="@+id/cardView2"
+        android:layout_width="318dp"
+        android:layout_height="69dp"
         app:cardCornerRadius="5dp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="405dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="369dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="230dp">
+            android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/RvBetrag"
@@ -24,7 +27,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
-                android:text="22,50€"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/RvTitel"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -37,7 +39,6 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="4dp"
-                android:text="Kategorie"
                 android:textSize="10sp"
                 app:layout_constraintStart_toEndOf="@+id/RvThumbnail"
                 app:layout_constraintTop_toBottomOf="@+id/RvTitel" />
@@ -48,7 +49,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
                 android:layout_marginLeft="40dp"
-                android:text="Datum"
                 android:textSize="10sp"
                 app:layout_constraintStart_toEndOf="@+id/RvKategorie"
                 app:layout_constraintTop_toTopOf="@+id/RvKategorie" />
@@ -60,7 +60,6 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="12dp"
-                android:text="Titel"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/RvThumbnail"
@@ -75,12 +74,17 @@
                 android:layout_marginTop="4dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_launcher_background" />
+                app:srcCompat="@drawable/ic_launcher_background"
+                tools:ignore="ImageContrastCheck" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:id="@+id/recyclerview"
+                android:layout_width="318dp"
+                android:layout_height="286dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
