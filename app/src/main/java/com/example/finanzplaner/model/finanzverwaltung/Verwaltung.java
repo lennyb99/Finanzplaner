@@ -1,5 +1,6 @@
 package com.example.finanzplaner.model.finanzverwaltung;
 
+import com.example.finanzplaner.db.DB;
 import com.example.finanzplaner.model.IObservable;
 import com.example.finanzplaner.view.IObserver;
 
@@ -36,6 +37,10 @@ public class Verwaltung implements IObservable {
 
     public void delEinnahme(String name){
 
+    }
+
+    public void getEinnahmenFromDB() {
+        einnahmen = DB.einnahme.getAllEinnahmen();
     }
 
     @Override
