@@ -43,7 +43,7 @@ public class Verwaltung implements IObservable, Serializable {
 
     public void addAusgabe(Ausgabe ausgabe){
         ausgaben.add(ausgabe);
-        Log.v("mydebug",ausgabe.getName()+ausgabe.getBetrag()+ausgabe.isWiederkehrend()+ausgabe.getAusgabekategorie().toString());
+        Log.v("mydebug",ausgabe.getName()+ausgabe.getBetrag()+ausgabe.isWiederkehrend()+ausgabe.getAk().toString());
         DB.ausgabe.insertAusgabe(ausgabe);
 
     }
