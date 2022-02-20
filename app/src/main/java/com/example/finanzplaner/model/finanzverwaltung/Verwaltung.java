@@ -41,7 +41,6 @@ public class Verwaltung implements IObservable {
     @Override
     public void anmelden(IObserver view) {
         views.add(view);
-
     }
 
     @Override
