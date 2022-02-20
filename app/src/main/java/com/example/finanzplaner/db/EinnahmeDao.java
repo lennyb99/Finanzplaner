@@ -11,7 +11,7 @@ import com.example.finanzplaner.model.finanzverwaltung.Einnahme;
 @Dao
 public interface EinnahmeDao {
 
-    @Query("FROM USERS")
+    @Insert
     public void insertEinnahmen(Einnahme... einnahme);
 
 
