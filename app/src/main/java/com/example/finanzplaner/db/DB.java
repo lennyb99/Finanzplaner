@@ -12,7 +12,7 @@ public abstract class DB extends RoomDatabase {
 
     public static DB db;
     public static EinnahmeDao einnahme;
-    //public static EinnahmeDao ausgabe;
+    public static EinnahmeDao ausgabe;
 
     public abstract EinnahmeDao getEinnahmeDao();
     public abstract EinnahmeDao getAusgabeDao();

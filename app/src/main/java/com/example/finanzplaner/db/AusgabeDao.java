@@ -25,7 +25,7 @@ public interface AusgabeDao {
     public void updateAusgabe(Ausgabe e);
 
     @Query("SELECT * FROM expense_table")
-    public ArrayList<Ausgabe> getAllAusgaben();
+    public List<Ausgabe> getAllAusgaben();
 
 
 }
