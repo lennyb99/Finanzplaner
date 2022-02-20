@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
         DbData.db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "AppDatabase").allowMainThreadQueries().build();
         DbData.einnahmeDao = DbData.db.einnahmeDao();
-        DbData.einnahmeDao.deleteEinnahme(DbData.einnahmeDao.getEinnahme().get(0));
+        //DbData.einnahmeDao.deleteEinnahme(DbData.einnahmeDao.getEinnahme().get(0));
         //DbData.einnahmeDao.insertEinnahmen(new Einnahme("Auto", true));
 
         //Log.v("Test 1",DbData.einnahmeDao.getEinnahme().get(0).);

@@ -9,12 +9,14 @@ import android.widget.Toast;
 
 import com.example.finanzplaner.view.AusgabeView;
 import com.example.finanzplaner.view.Dashboard;
+import com.example.finanzplaner.view.Kategorie;
 
 public class AusgabeController implements Controller{
 
     private AusgabeView ausgabeView;
 
     private Button bestaetigung;
+    private Button kategorieView;
     private EditText name;
     private EditText betrag;
     private EditText datum;
@@ -26,7 +28,8 @@ public class AusgabeController implements Controller{
     public AusgabeController(AusgabeView aV){
         ausgabeView = aV;
 
-        bestaetigung = aV.getBestaetigung();
+        bestaetigung = ausgabeView.getBestaetigung();
+        kategorieView = ausgabeView.getKategorieView();
         name = (EditText) ausgabeView.getName();
         betrag = (EditText) ausgabeView.getBetrag();
         datum = (EditText) ausgabeView.getDatum();
@@ -48,6 +51,14 @@ public class AusgabeController implements Controller{
                 ausgabeView.startNewActivity(Dashboard.class);
             }
         });
+
+        kategorieView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ausgabeView.startNewActivity(Kategorie.class);
+            }
+        });
+
     }
 
     @Override
