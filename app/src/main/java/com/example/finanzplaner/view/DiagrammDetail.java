@@ -18,7 +18,7 @@ public class DiagrammDetail extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         recyclerView = findViewById(R.id.legendeDiagramm);
-       MyAdapter myAdapter = new MyAdapter()
+       MyAdapter myAdapter = new MyAdapter();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diagrammdetail);
     }
