@@ -2,6 +2,10 @@ package com.example.finanzplaner.model.finanzverwaltung;
 
 public class Einnahmekategorie {
 
+    public Einnahmekategorie(String name) {
+        this.name = name;
+    }
+
     public String getName() {
         return name;
     }
@@ -11,5 +15,10 @@ public class Einnahmekategorie {
     }
 
     private String name;
+
+    @Override
+    public String toString(){
+        return name;
+    }
 
 }
