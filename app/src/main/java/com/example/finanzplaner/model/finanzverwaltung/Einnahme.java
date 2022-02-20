@@ -2,7 +2,6 @@ package com.example.finanzplaner.model.finanzverwaltung;
 
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
-import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import java.util.Calendar;
