@@ -7,23 +7,82 @@
     android:background="@drawable/background"
     tools:context=".view.DiagrammDetail">
 
-    <ImageView
-        android:id="@+id/diagramm"
-        android:layout_width="236dp"
-        android:layout_height="238dp"
-        android:contentDescription="DiagrammPlaceHolder"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@tools:sample/avatars" />
+    <androidx.cardview.widget.CardView
+        android:layout_width="308dp"
+        android:layout_height="67dp"
+        app:cardCornerRadius="5dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="405dp">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/legendeDiagramm"
-        android:layout_width="409dp"
-        android:layout_height="336dp"
-        android:layout_marginTop="76dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/diagramm" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="230dp">
+
+            <TextView
+                android:id="@+id/RvBetrag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:text="22,50€"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/RvTitel"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/RvTitel" />
+
+            <TextView
+                android:id="@+id/RvKategorie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="4dp"
+                android:text="Kategorie"
+                android:textSize="10sp"
+                app:layout_constraintStart_toEndOf="@+id/RvThumbnail"
+                app:layout_constraintTop_toBottomOf="@+id/RvTitel" />
+
+            <TextView
+                android:id="@+id/RvDatum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginLeft="40dp"
+                android:text="Datum"
+                android:textSize="10sp"
+                app:layout_constraintStart_toEndOf="@+id/RvKategorie"
+                app:layout_constraintTop_toTopOf="@+id/RvKategorie" />
+
+            <TextView
+                android:id="@+id/RvTitel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="12dp"
+                android:text="Titel"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/RvThumbnail"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/RvThumbnail"
+                android:layout_width="61dp"
+                android:layout_height="59dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="4dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_launcher_background" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
