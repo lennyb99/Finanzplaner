@@ -28,14 +28,13 @@ public class MainActivity extends AppCompatActivity {
         //Instanziierung von Verwaltung
         Verwaltung verwaltung = new Verwaltung();
 
-
-
         //DB Setup
         DB.db = Room.databaseBuilder(getApplicationContext(), DB.class, "FinanzplanerDatabase").allowMainThreadQueries().build();
         DB.db.daoSetup();
+        DB.einnahmekategorie.insertEinnahmekategorie(new Einnahmekategorie("BRiefe"));
 
 
-        startActivity(new Intent(MainActivity.this,Dashboard.class).putExtra("Verwaltung",verwaltung));
+        startActivity(new Intent(MainActivity.this,Dashboard.class).putExtra("Verwaltung", verwaltung));
 
     }
 

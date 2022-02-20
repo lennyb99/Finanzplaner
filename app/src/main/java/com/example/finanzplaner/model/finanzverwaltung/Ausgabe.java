@@ -2,7 +2,7 @@ package com.example.finanzplaner.model.finanzverwaltung;
 
 import androidx.room.Entity;
 
-@Entity (tableName = "expense_table")
+@Entity(tableName = "expense_table")
 public class Ausgabe extends Eintrag {
 
     private Ausgabekategorie ausgabekategorie;
@@ -13,11 +13,11 @@ public class Ausgabe extends Eintrag {
     }
 
     //Getter und Setter
-    public Ausgabekategorie getAk() {
+    public Ausgabekategorie getAusgabekategorie() {
         return ausgabekategorie;
     }
 
-    public void setAk(Ausgabekategorie ausgabekategorie) {
+    public void setAusgabekategorie(Ausgabekategorie ausgabekategorie) {
         this.ausgabekategorie = ausgabekategorie;
     }
 

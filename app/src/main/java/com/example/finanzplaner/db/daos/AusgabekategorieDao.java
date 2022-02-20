@@ -4,9 +4,12 @@ import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
+import androidx.room.Query;
 import androidx.room.Update;
 
 import com.example.finanzplaner.model.finanzverwaltung.Ausgabekategorie;
+
+import java.util.List;
 
 @Dao
 public interface AusgabekategorieDao {
@@ -19,5 +22,8 @@ public interface AusgabekategorieDao {
 
     @Update
     public void updateAusgabekateogrie(Ausgabekategorie a);
+
+    @Query("SELECT * FROM expenseCateogries_table")
+    public List<Ausgabekategorie> getAllAusgabekategorien();
 
 }
