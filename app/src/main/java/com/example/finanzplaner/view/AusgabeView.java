@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.finanzplaner.R;
 import com.example.finanzplaner.controller.AusgabeController;
@@ -29,7 +28,7 @@ public class AusgabeView extends AppCompatActivity {
         bestaetigung = (Button) findViewById(R.id.bestaetigen);
         name = (EditText) findViewById(R.id.titel);
         betrag = (EditText) findViewById(R.id.betrag);
-        datum = (EditText) findViewById(R.id.datum);
+        datum = (EditText) findViewById(R.id.date);
 
         ausgabeController = new AusgabeController(this);
     }

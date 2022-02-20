@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context=".view.Einnahme">
+    tools:context=".view.EinnahmeView">
 
     <Button
         android:id="@+id/bestaetigen"
@@ -17,8 +17,9 @@
         app:layout_constraintBottom_toBottomOf="@+id/zurueck"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/zurueck3"
-        app:layout_constraintTop_toTopOf="@+id/zurueck" />
+        app:layout_constraintStart_toEndOf="@+id/zurueck"
+        app:layout_constraintTop_toTopOf="@+id/zurueck"
+        tools:ignore="TextContrastCheck" />
 
     <EditText
         android:id="@+id/titel"
@@ -31,6 +32,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
+        android:importantForAutofill="no"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
@@ -40,25 +42,31 @@
         android:layout_marginTop="220dp"
         android:layout_marginBottom="480dp"
         android:ems="10"
+        android:importantForAutofill="no"
         android:inputType="numberDecimal"
-        app:layout_constraintBottom_toTopOf="@+id/datum"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/date"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titel3" />
+        app:layout_constraintTop_toBottomOf="@+id/titel"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <EditText
-        android:id="@+id/datum"
+        android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="368dp"
         android:ems="10"
         android:inputType="date"
+        android:importantForAutofill="no"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/betrag" />
+        android:minHeight="48dp"
+        app:layout_constraintTop_toBottomOf="@+id/betrag"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <Button
         android:id="@+id/zurueck"
@@ -70,5 +78,6 @@
         app:layout_constraintEnd_toStartOf="@+id/bestaetigen"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/datum" />
+        app:layout_constraintTop_toBottomOf="@+id/date"
+        tools:ignore="TextContrastCheck" />
 </androidx.constraintlayout.widget.ConstraintLayout>
