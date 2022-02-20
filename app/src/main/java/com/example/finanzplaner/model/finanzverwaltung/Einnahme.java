@@ -13,10 +13,10 @@ public class Einnahme {
     @PrimaryKey(autoGenerate = true) @NonNull
     private int id;
     private String name;
-    private float betrag;
+    //private float betrag;
     private String datum;
     private boolean repetetiv;
-    private Einnahmekategorie einnahmekategorie;
+    //private Einnahmekategorie einnahmekategorie;
 
     public Einnahme(String name, boolean repetetiv) {
         this.name = name;

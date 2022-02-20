@@ -1,5 +1,6 @@
 package com.example.finanzplaner.view;
 
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -9,16 +10,10 @@ import java.util.Date;
 
 public class MyAdapter extends RecyclerView. Adapter<MyAdapter.ViewHolder>{
 
-    private int id;
-    private String name;
-    private String datum;
-    private boolean repetetiv;
 
-     public MyAdapter(int id, String title, float value, String date, boolean reoccurring) {
-        id = id;
-        name = title;
-        datum = datum;
-        repetetiv = reoccurring;
+
+     public MyAdapter() {
+
 
 
 
@@ -42,7 +37,7 @@ public class MyAdapter extends RecyclerView. Adapter<MyAdapter.ViewHolder>{
 
      public class ViewHolder extends RecyclerView.ViewHolder{
 
-        public ViewHolder (@NonNull DiagrammDetail itemView){
+        public ViewHolder (@NonNull View itemView){
         super(itemView);
         }
 }
