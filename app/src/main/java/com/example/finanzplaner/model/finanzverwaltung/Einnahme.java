@@ -18,7 +18,7 @@ public class Einnahme {
     private boolean wiederkehrend;
 
     public Einnahme(){}
-    public Einnahme(String name, float betrag, Einnahmekategorie einnahmekategorie, boolean wiederkehrend) {
+    public Einnahme(String name, float betrag, boolean wiederkehrend, Einnahmekategorie einnahmekategorie) {
         this.name = name;
         this.betrag = betrag;
         datum = Calendar.getInstance().toString();
