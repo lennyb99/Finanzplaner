@@ -35,6 +35,7 @@
         android:layout_width="207dp"
         android:layout_height="44dp"
         android:layout_marginTop="12dp"
+        android:spinnerMode="dropdown"
         app:layout_constraintEnd_toEndOf="@+id/datum"
         app:layout_constraintStart_toStartOf="@+id/datum"
         app:layout_constraintTop_toBottomOf="@+id/datum" />

@@ -4,36 +4,59 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.finanzplaner.R;
 import com.example.finanzplaner.controller.AusgabeController;
+import com.example.finanzplaner.model.finanzverwaltung.Ausgabekategorie;
+import com.example.finanzplaner.model.finanzverwaltung.Verwaltung;
 
-public class AusgabeView extends AppCompatActivity {
+import java.util.List;
 
-    AusgabeController ausgabeController;
+public class AusgabeView extends AppCompatActivity implements IObserver{
 
-    Button bestaetigung;
-    EditText name;
-    EditText betrag;
-    EditText datum;
+    private AusgabeController ausgabeController;
+    private Verwaltung verwaltung;
+
+    private List<String> kategorieItemsString;
+    private List<Ausgabekategorie> kategorieItems;
+
+    private Button bestaetigung;
+    private EditText name;
+    private EditText betrag;
+    private EditText datum;
     private Button kategorieView;
+    private Spinner kategorienSpinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ausgabe);
 
+        verwaltung = (Verwaltung) getIntent().getSerializableExtra("Verwaltung");
+
+        kategorieItemsString = verwaltung.getAusgabekategorieItemsString();
+        kategorieItems = verwaltung.getAusgabekategorieItems();
+
         bestaetigung = (Button) findViewById(R.id.bestaetigen);
         name = (EditText) findViewById(R.id.titel);
         betrag = (EditText) findViewById(R.id.betrag);
         datum = (EditText) findViewById(R.id.datum);
         kategorieView = (Button) findViewById(R.id.kategoriebutton2);
+        kategorienSpinner = (Spinner) findViewById(R.id.kategorie);
 
-        ausgabeController = new AusgabeController(this);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, kategorieItemsString);
+        kategorienSpinner.setAdapter(adapter);
+
+        ausgabeController = new AusgabeController(this, kategorieItems, verwaltung);
+    }
+
+    public Spinner getKategorienSpinner() {
+        return kategorienSpinner;
     }
 
     public Button getBestaetigung(){
@@ -61,7 +84,8 @@ public class AusgabeView extends AppCompatActivity {
     }
 
 
+    @Override
+    public void update() {
 
-
-
+    }
 }

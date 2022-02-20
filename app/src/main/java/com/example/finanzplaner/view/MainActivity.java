@@ -8,6 +8,7 @@ import android.os.Bundle;
 
 import com.example.finanzplaner.R;
 import com.example.finanzplaner.db.DB;
+import com.example.finanzplaner.model.finanzverwaltung.Verwaltung;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,11 +17,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Instanziierung von Verwaltung
+        Verwaltung verwaltung = new Verwaltung();
+
         //Instanziiert Database Stuff
         DB.db = Room.databaseBuilder(getApplicationContext(), DB.class, "FinanzplanerDatabase").allowMainThreadQueries().build();
         DB.einnahme = DB.db.getEinnahmeDao();
 
-        startActivity(new Intent(MainActivity.this,Dashboard.class));
+        startActivity(new Intent(MainActivity.this,Dashboard.class).putExtra("Verwaltung",verwaltung));
 
     }
+
+
+
 }
