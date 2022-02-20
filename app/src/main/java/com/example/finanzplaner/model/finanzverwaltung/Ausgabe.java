@@ -10,10 +10,11 @@ import java.util.Calendar;
 public class Ausgabe {
 
     @PrimaryKey @NonNull
-    public String name;
-    public String datum;
-    public boolean repetetiv;
-    public Ausgabekategorie ausgabekategorie;
+    private String name;
+    private float betrag;
+    private String datum;
+    private boolean repetetiv;
+    private Ausgabekategorie ausgabekategorie;
 
     public Ausgabe(){
         datum = Calendar.getInstance().toString();

@@ -60,4 +60,14 @@ public class Verwaltung implements IObservable {
 
     }
 
+
+    public List<Ausgabe> getAusgaben(){
+        return ausgaben;
+    }
+
+    public List<Einnahme> getEinnahmen(){
+        return einnahmen;
+    }
+
+
 }
