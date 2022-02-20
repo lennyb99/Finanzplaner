@@ -13,7 +13,7 @@ public class Ausgabe {
     private String name;
     private float betrag;
     private String datum;
-    private boolean repetetiv;
+    private boolean repetitiv;
     private Ausgabekategorie ausgabekategorie;
 
     public Ausgabe(){
