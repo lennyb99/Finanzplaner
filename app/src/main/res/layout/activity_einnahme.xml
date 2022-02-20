@@ -11,15 +11,13 @@
         android:id="@+id/bestaetigen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="12dp"
-        android:layout_marginRight="12dp"
         android:text="enter"
         app:layout_constraintBottom_toBottomOf="@+id/zurueck"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/zurueck"
+        app:layout_constraintHorizontal_bias="0.712"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/zurueck"
-        tools:ignore="TextContrastCheck" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/titel"
@@ -30,55 +28,49 @@
         android:text="Name"
         app:layout_constraintBottom_toTopOf="@+id/betrag"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.542"
+        app:layout_constraintHorizontal_bias="0.462"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.704" />
 
     <EditText
         android:id="@+id/betrag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="220dp"
-        android:layout_marginBottom="388dp"
+        android:layout_marginBottom="44dp"
         android:ems="10"
         android:importantForAutofill="no"
         android:inputType="numberDecimal"
-        android:minHeight="48dp"
-        app:layout_constraintBottom_toTopOf="@+id/date"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.532"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titel"
-        tools:ignore="SpeakableTextPresentCheck" />
+        app:layout_constraintBottom_toTopOf="@+id/datum"
+        app:layout_constraintEnd_toEndOf="@+id/titel"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/titel"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="368dp"
         android:ems="10"
         android:inputType="date"
-        android:importantForAutofill="no"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.696"
-        app:layout_constraintStart_toStartOf="parent"
-        android:minHeight="48dp"
-        app:layout_constraintTop_toBottomOf="@+id/betrag"
-        tools:ignore="SpeakableTextPresentCheck" />
+        app:layout_constraintBottom_toTopOf="@+id/kategoriebutton"
+        app:layout_constraintEnd_toEndOf="@+id/betrag"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/betrag"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/zurueck"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="44dp"
         android:text="zurück"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/bestaetigen"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.232"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/datum" />
+        app:layout_constraintTop_toBottomOf="@+id/kategoriebutton"
+        app:layout_constraintVertical_bias="0.74" />
 
     <Button
         android:id="@+id/kategoriebutton"
@@ -87,8 +79,20 @@
         android:text="Kategorien verwalten"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.758"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.604" />
+        app:layout_constraintVertical_bias="0.636" />
+
+    <Spinner
+        android:id="@+id/kategorie2"
+        android:layout_width="220dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="32dp"
+        android:spinnerMode="dropdown"
+        app:layout_constraintBottom_toTopOf="@+id/kategoriebutton"
+        app:layout_constraintEnd_toEndOf="@+id/datum"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/datum"
+        app:layout_constraintTop_toBottomOf="@+id/datum"
+        app:layout_constraintVertical_bias="0.061" />
 </androidx.constraintlayout.widget.ConstraintLayout>

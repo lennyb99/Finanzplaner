@@ -8,8 +8,11 @@ import android.widget.Button;
 
 import com.example.finanzplaner.R;
 import com.example.finanzplaner.controller.ActionController;
+import com.example.finanzplaner.model.finanzverwaltung.Verwaltung;
 
 public class Action extends AppCompatActivity {
+
+    Verwaltung verwaltung;
 
     ActionController actionController;
 
@@ -21,6 +24,8 @@ public class Action extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_action);
 
+        verwaltung = (Verwaltung) getIntent().getSerializableExtra("Verwaltung");
+
         ausgabeButton = (Button) findViewById(R.id.ausgabe);
         einnahmeButton = (Button) findViewById(R.id.einnahme);
 
@@ -30,7 +35,7 @@ public class Action extends AppCompatActivity {
 
 
     public void startNewActivity(Class dest){
-        startActivity(new Intent(Action.this, dest));
+        startActivity(new Intent(Action.this, dest).putExtra("Verwaltung", verwaltung));
     }
 
     public Button getAusgabeButton(){

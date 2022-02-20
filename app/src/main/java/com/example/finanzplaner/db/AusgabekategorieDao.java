@@ -6,18 +6,19 @@ import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Update;
 
+import com.example.finanzplaner.model.finanzverwaltung.Ausgabekategorie;
 import com.example.finanzplaner.model.finanzverwaltung.Einnahmekategorie;
 
 @Dao
-public interface EinnahmekategorieDao {
+public interface AusgabekategorieDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    public void insertEinnahmekategorie(Einnahmekategorie e);
+    public void insertAusgabekateogrie(Ausgabekategorie a);
 
     @Delete
-    public void deleteEinnahmekategorie(Einnahmekategorie e);
+    public void deleteAusgabekateogrie(Ausgabekategorie a);
 
     @Update
-    public void updateEinnahmekategorie(Einnahmekategorie e);
+    public void updateAusgabekateogrie(Ausgabekategorie a);
 
 }

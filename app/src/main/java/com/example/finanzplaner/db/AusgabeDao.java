@@ -7,8 +7,8 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 import com.example.finanzplaner.model.finanzverwaltung.Ausgabe;
+import com.example.finanzplaner.model.finanzverwaltung.Einnahme;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Dao
@@ -16,16 +16,15 @@ import java.util.List;
 public interface AusgabeDao {
 
     @Insert
-    public void insertAusgabe(Ausgabe e);
+    public void insertAusgabe(Ausgabe a);
 
     @Delete
-    public void deleteAusgabe(Ausgabe e);
+    public void deleteAusgabe(Ausgabe a);
 
     @Update
-    public void updateAusgabe(Ausgabe e);
+    public void updateAusgabe(Ausgabe a);
 
     @Query("SELECT * FROM expense_table")
     public List<Ausgabe> getAllAusgaben();
-
 
 }
