@@ -14,7 +14,7 @@ import java.util.List;
 public interface EinnahmeDao {
 
     @Insert
-    public void insertEinnahm(Einnahme e);
+    public void insertEinnahme(Einnahme e);
 
     @Delete
     public void deleteEinnahme(Einnahme e);
