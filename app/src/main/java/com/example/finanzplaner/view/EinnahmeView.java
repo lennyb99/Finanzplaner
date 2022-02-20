@@ -21,6 +21,7 @@ public class EinnahmeView extends AppCompatActivity {
     EditText name;
     EditText betrag;
     EditText datum;
+    private Button kategorieView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +32,7 @@ public class EinnahmeView extends AppCompatActivity {
         name = (EditText) findViewById(R.id.titel);
         betrag = (EditText) findViewById(R.id.betrag);
         datum = (EditText) findViewById(R.id.datum);
+        kategorieView = (Button) findViewById(R.id.kategoriebutton);
 
         einnahmeController = new EinnahmeController(this);
 
@@ -51,6 +53,10 @@ public class EinnahmeView extends AppCompatActivity {
 
     public TextView getDatum(){
         return datum;
+    }
+
+    public Button getKategorieView(){
+        return kategorieView;
     }
 
     public void startNewActivity(Class dest){
