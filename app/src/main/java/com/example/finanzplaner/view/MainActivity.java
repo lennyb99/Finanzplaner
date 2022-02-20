@@ -8,8 +8,7 @@ import android.os.Bundle;
 
 import com.example.finanzplaner.R;
 import com.example.finanzplaner.db.AppDatabase;
-import com.example.finanzplaner.db.EinnahmeDao;
-import com.example.finanzplaner.model.finanzverwaltung.Einnahme;
+import com.example.finanzplaner.db.DbData;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,9 +18,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        AppDatabase db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "AppDatabase").allowMainThreadQueries().build();
-        EinnahmeDao ed = db.einnahmeDao();
-        ed.insertEinnahmen(new Einnahme("Zeitung", true));
+        DbData.db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "AppDatabase").allowMainThreadQueries().build();
+        DbData.einnahmeDao = DbData.db.einnahmeDao();
 
 
 

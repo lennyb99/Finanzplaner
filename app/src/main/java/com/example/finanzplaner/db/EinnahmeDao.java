@@ -8,13 +8,18 @@ import androidx.room.Update;
 
 import com.example.finanzplaner.model.finanzverwaltung.Einnahme;
 
+import java.util.List;
+
 @Dao
 public interface EinnahmeDao {
 
-    @Query("FROM USERS")
-    public void insertEinnahmen(Einnahme... einnahme);
+    @Insert
+    public void insertEinnahmen(Einnahme e);
 
+    //Löscht Einnahme-Objekt (mit derselben ID wie die ID von e!!!) aus der Tabelle.
+    @Delete
+    public void deleteEinnahme(Einnahme e);
 
-
-
+    @Update
+    public void updateEinnahme(Einnahme e);
 }
