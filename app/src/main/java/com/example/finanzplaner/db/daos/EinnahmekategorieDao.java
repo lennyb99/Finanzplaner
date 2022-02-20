@@ -1,4 +1,4 @@
-package com.example.finanzplaner.db;
+package com.example.finanzplaner.db.daos;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
