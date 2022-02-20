@@ -9,6 +9,17 @@
 
 
     <Button
+        android:id="@+id/kategoriebutton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kategorien verwalten"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.543" />
+
+    <Button
         android:id="@+id/bestaetigen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -25,9 +36,9 @@
         android:layout_width="207dp"
         android:layout_height="48dp"
         android:layout_marginTop="12dp"
-        app:layout_constraintEnd_toEndOf="@+id/date"
-        app:layout_constraintTop_toBottomOf="@+id/date"
-        tools:ignore="SpeakableTextPresentCheck" />
+        app:layout_constraintEnd_toEndOf="@+id/datum"
+        app:layout_constraintStart_toStartOf="@+id/datum"
+        app:layout_constraintTop_toBottomOf="@+id/datum" />
 
     <EditText
         android:id="@+id/date"

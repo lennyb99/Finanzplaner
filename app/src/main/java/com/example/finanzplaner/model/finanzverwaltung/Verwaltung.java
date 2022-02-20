@@ -41,7 +41,6 @@ public class Verwaltung implements IObservable {
     @Override
     public void anmelden(IObserver view) {
         views.add(view);
-
     }
 
     @Override
@@ -60,5 +59,15 @@ public class Verwaltung implements IObservable {
     public void gibAktuelleDaten() {
 
     }
+
+
+    public List<Ausgabe> getAusgaben(){
+        return ausgaben;
+    }
+
+    public List<Einnahme> getEinnahmen(){
+        return einnahmen;
+    }
+
 
 }

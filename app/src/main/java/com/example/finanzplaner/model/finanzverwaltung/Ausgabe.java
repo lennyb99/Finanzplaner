@@ -6,15 +6,15 @@ import androidx.room.PrimaryKey;
 
 import java.util.Calendar;
 
-enum ausgabeKategorien {}
-
 @Entity (tableName = "expense_table")
 public class Ausgabe {
 
     @PrimaryKey @NonNull
-    public String name;
-    public String datum;
-    public boolean repetetiv;
+    private String name;
+    private float betrag;
+    private String datum;
+    private boolean repetetiv;
+    private Ausgabekategorie ausgabekategorie;
 
     public Ausgabe(){
         datum = Calendar.getInstance().toString();
