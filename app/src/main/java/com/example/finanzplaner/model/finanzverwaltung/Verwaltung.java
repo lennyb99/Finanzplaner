@@ -77,7 +77,7 @@ public class Verwaltung implements IObservable, Serializable {
 
 
     public void getAusgabenFromDB() {
-        einnahmen = DB.ausgabe.getAllEinnahmen();
+        ausgaben = DB.ausgabe.getAllAusgaben();
     }
 
     @Override
@@ -103,7 +103,7 @@ public class Verwaltung implements IObservable, Serializable {
     }
 
 
-    public ArrayList<Ausgabe> getAusgaben(){
+    public List<Ausgabe> getAusgaben(){
         return ausgaben;
     }
 
