@@ -14,9 +14,8 @@ import java.util.List;
 public interface EinnahmeDao {
 
     @Insert
-    public void insertEinnahmen(Einnahme e);
+    public void insertEinnahm(Einnahme e);
 
-    //Löscht Einnahme-Objekt (mit derselben ID wie die ID von e!!!) aus der Tabelle.
     @Delete
     public void deleteEinnahme(Einnahme e);
 
@@ -24,5 +23,6 @@ public interface EinnahmeDao {
     public void updateEinnahme(Einnahme e);
 
     @Query("SELECT * FROM income_table WHERE id = 11")
-    public List<Einnahme> getEinnahme();
+    public List<Einnahme> getAllEinnahmen();
+
 }

@@ -7,9 +7,13 @@ import com.example.finanzplaner.model.finanzverwaltung.Ausgabe;
 import com.example.finanzplaner.model.finanzverwaltung.Einnahme;
 
 @Database(entities = {Einnahme.class, Ausgabe.class}, version = 1)
-public abstract class AppDatabase extends RoomDatabase {
+public abstract class DB extends RoomDatabase {
 
-    public abstract EinnahmeDao einnahmeDao();
-    public abstract AusgabeDao ausgabeDao();
+    public static DB db;
+    public static EinnahmeDao einnahme;
+    public static AusgabeDao ausgabe;
+
+    public abstract EinnahmeDao getEinnahmeDao();
+    public abstract AusgabeDao getAusgabeDao();
 
 }
