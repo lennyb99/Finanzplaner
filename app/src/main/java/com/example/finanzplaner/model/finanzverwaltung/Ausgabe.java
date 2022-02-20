@@ -1,6 +1,5 @@
 package com.example.finanzplaner.model.finanzverwaltung;
 
-
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -8,7 +7,8 @@ import androidx.room.PrimaryKey;
 import java.util.Calendar;
 
 enum ausgabeKategorien {}
-@Entity
+
+@Entity (tableName = "expense_table")
 public class Ausgabe {
 
     @PrimaryKey @NonNull
