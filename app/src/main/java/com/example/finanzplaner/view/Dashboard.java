@@ -22,11 +22,16 @@ public class Dashboard extends AppCompatActivity implements IObserver{
 
     Verwaltung verwaltung;
 
+
+
+
     PieChart pieChart;
     PieData pieData;
     List<PieEntry> pieEntryList = new ArrayList<>();
     DashboardController dbController;
     FloatingActionButton eintraegeHinzufuegen;
+    FloatingActionButton diagrammDetails;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +41,8 @@ public class Dashboard extends AppCompatActivity implements IObserver{
         verwaltung = (Verwaltung) getIntent().getSerializableExtra("Verwaltung");
 
         eintraegeHinzufuegen = (FloatingActionButton) findViewById(R.id.hinzufuegen);
-        dbController = new DashboardController(this);
+        diagrammDetails = (FloatingActionButton) findViewById(R.id.goToDiagrammDetail);
+
 
         pieChart = findViewById(R.id.pieChart);
         pieChart.setUsePercentValues(true);
@@ -49,6 +55,8 @@ public class Dashboard extends AppCompatActivity implements IObserver{
         pieData = new PieData(pieDataSet);
         pieChart.setData(pieData);
         pieChart.invalidate();
+        dbController = new DashboardController(this);
+
     }
 
     @Override
@@ -59,8 +67,15 @@ public class Dashboard extends AppCompatActivity implements IObserver{
         return eintraegeHinzufuegen;
     }
 
+    public FloatingActionButton getActionButtonDetails(){
+        return diagrammDetails;
+    }
+
     public void startNewActivity(Class dest){
         startActivity(new Intent(Dashboard.this, dest).putExtra("Verwaltung", verwaltung));
     }
+
+
+
 
 }
