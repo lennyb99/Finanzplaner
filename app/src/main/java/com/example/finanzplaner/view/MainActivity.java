@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         DB.db = Room.databaseBuilder(getApplicationContext(), DB.class, "FinanzplanerDatabase").allowMainThreadQueries().build();
         DB.db.daoSetup();
 
+
         startActivity(new Intent(MainActivity.this,Dashboard.class).putExtra("Verwaltung",verwaltung));
 
     }

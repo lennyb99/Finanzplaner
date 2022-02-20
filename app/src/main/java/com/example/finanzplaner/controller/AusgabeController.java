@@ -53,7 +53,7 @@ public class AusgabeController implements Controller{
                 datumWert = datum.getText().toString();
                 kategorieWert = kategorieSpinner.getSelectedItem().toString();
 
-                verwaltung.addAusgabe(new Ausgabe(nameWert, betragWert, false, verwaltung.findAusgabekategorie(kategorieWert)));
+                verwaltung.addAusgabe(new Ausgabe(nameWert, betragWert, verwaltung.findAusgabekategorie(kategorieWert), false));
 
 
 
