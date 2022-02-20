@@ -7,8 +7,6 @@ import androidx.room.PrimaryKey;
 
 import java.util.Calendar;
 
-enum einnahmeKategorien {}
-
 @Entity (tableName = "income_table")
 public class Einnahme {
 
@@ -17,6 +15,7 @@ public class Einnahme {
     private String name;
     private String datum;
     private boolean repetetiv;
+    private Einnahmekategorie einnahmekategorie;
 
     public Einnahme(String name, boolean repetetiv) {
         this.name = name;
