@@ -16,12 +16,15 @@ public class Einnahme {
     private float betrag;
     private String datum;
     private boolean wiederkehrend;
-    //private Einnahmekategorie einnahmekategorie;
+    private String einnahmekategorie;
 
-    public Einnahme(String name, boolean repetetiv) {
+    public Einnahme(){}
+    public Einnahme(String name, float betrag, boolean wiederkehrend, Einnahmekategorie einnahmekategorie) {
         this.name = name;
-        this.wiederkehrend = repetetiv;
+        this.betrag = betrag;
+        this.wiederkehrend = wiederkehrend;
         datum = Calendar.getInstance().toString();
+        this.einnahmekategorie = einnahmekategorie.toString();
     }
 
     //Getter und Setter
@@ -39,22 +42,32 @@ public class Einnahme {
         this.name = name;
     }
 
+    public float getBetrag() {
+        return betrag;
+    }
+    public void setBetrag(float betrag) {
+        this.betrag = betrag;
+    }
+
     public String getDatum() {
         return datum;
     }
-
     public void setDatum(String datum) {
         this.datum = datum;
     }
 
-    public boolean isRepetetiv() {
+    public boolean isWiederkehrend() {
         return wiederkehrend;
     }
-
-    public void setRepetetiv(boolean repetetiv) {
-        this.wiederkehrend = repetetiv;
+    public void setWiederkehrend(boolean wiederkehrend) {
+        this.wiederkehrend = wiederkehrend;
     }
 
-
+    public String getEinnahmekategorie() {
+        return einnahmekategorie;
+    }
+    public void setEinnahmekategorie(String einnahmekategorie) {
+        this.einnahmekategorie = einnahmekategorie;
+    }
 
 }

@@ -22,7 +22,7 @@ public interface EinnahmeDao {
     @Update
     public void updateEinnahme(Einnahme e);
 
-    @Query("SELECT * FROM income_table WHERE id = 11")
+    @Query("SELECT * FROM income_table")
     public List<Einnahme> getAllEinnahmen();
 
 }
