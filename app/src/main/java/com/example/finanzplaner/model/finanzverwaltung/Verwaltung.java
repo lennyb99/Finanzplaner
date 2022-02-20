@@ -4,13 +4,14 @@ import com.example.finanzplaner.db.DB;
 import com.example.finanzplaner.model.IObservable;
 import com.example.finanzplaner.view.IObserver;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Verwaltung implements IObservable {
 
-    private List<Ausgabe> ausgaben;
-    private List<Einnahme> einnahmen;
+    private ArrayList <Ausgabe> ausgaben;
+    private List <Einnahme> einnahmen;
 
     private List<IObserver> views;
 
@@ -41,6 +42,12 @@ public class Verwaltung implements IObservable {
 
     public void getEinnahmenFromDB() {
         einnahmen = DB.einnahme.getAllEinnahmen();
+
+    }
+
+
+    public void getAusgabenFromDB() {
+        einnahmen = DB.ausgabe.getAllEinnahmen();
     }
 
     @Override
@@ -66,7 +73,7 @@ public class Verwaltung implements IObservable {
     }
 
 
-    public List<Ausgabe> getAusgaben(){
+    public ArrayList<Ausgabe> getAusgaben(){
         return ausgaben;
     }
 
