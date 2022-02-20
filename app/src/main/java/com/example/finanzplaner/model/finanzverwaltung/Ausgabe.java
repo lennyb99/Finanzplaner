@@ -6,8 +6,6 @@ import androidx.room.PrimaryKey;
 
 import java.util.Calendar;
 
-enum ausgabeKategorien {}
-
 @Entity (tableName = "expense_table")
 public class Ausgabe {
 
@@ -15,6 +13,7 @@ public class Ausgabe {
     public String name;
     public String datum;
     public boolean repetetiv;
+    public Ausgabekategorie ausgabekategorie;
 
     public Ausgabe(){
         datum = Calendar.getInstance().toString();
