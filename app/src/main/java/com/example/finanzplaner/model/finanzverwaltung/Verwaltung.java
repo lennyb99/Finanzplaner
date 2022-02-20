@@ -50,7 +50,11 @@ public class Verwaltung implements IObservable, Serializable {
 
     public void addEinnahme(Einnahme einnahme){
         einnahmen.add(einnahme);
+
         Log.v("mydebug",einnahme.getName()+einnahme.getBetrag()+einnahme.isWiederkehrend()+einnahme.getEinnahmekategorie().toString());
+
+        Log.v("mydebug",einnahme.getName()+einnahme.getBetrag()+einnahme.isWiederkehrend()+einnahme.getEinnahmekategorie().toString());
+
         DB.einnahme.insertEinnahme(einnahme);
     }
 

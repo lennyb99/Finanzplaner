@@ -1,4 +1,4 @@
-package com.example.finanzplaner.db;
+package com.example.finanzplaner.db.daos;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
@@ -7,7 +7,6 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 import com.example.finanzplaner.model.finanzverwaltung.Ausgabe;
-import com.example.finanzplaner.model.finanzverwaltung.Einnahme;
 
 import java.util.List;
 

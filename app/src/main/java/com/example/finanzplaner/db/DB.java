@@ -2,13 +2,19 @@ package com.example.finanzplaner.db;
 
 import androidx.room.Database;
 import androidx.room.RoomDatabase;
+import androidx.room.TypeConverters;
 
+import com.example.finanzplaner.db.daos.AusgabeDao;
+import com.example.finanzplaner.db.daos.AusgabekategorieDao;
+import com.example.finanzplaner.db.daos.EinnahmeDao;
+import com.example.finanzplaner.db.daos.EinnahmekategorieDao;
 import com.example.finanzplaner.model.finanzverwaltung.Ausgabe;
 import com.example.finanzplaner.model.finanzverwaltung.Ausgabekategorie;
 import com.example.finanzplaner.model.finanzverwaltung.Einnahme;
 import com.example.finanzplaner.model.finanzverwaltung.Einnahmekategorie;
 
 @Database(entities = {Einnahme.class, Ausgabe.class, Einnahmekategorie.class, Ausgabekategorie.class}, version = 1)
+@TypeConverters({Converters.class})
 public abstract class DB extends RoomDatabase {
 
     public static DB db;
