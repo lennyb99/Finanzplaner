@@ -20,7 +20,7 @@ public class Einnahme {
 
     public Einnahme(String name, boolean repetetiv) {
         this.name = name;
-        this.repetitiv = repetetiv;
+        this.wiederkehrend = repetetiv;
         datum = Calendar.getInstance().toString();
     }
 
