@@ -13,6 +13,7 @@ import com.example.finanzplaner.model.finanzverwaltung.Einnahmekategorie;
 import com.example.finanzplaner.model.finanzverwaltung.Verwaltung;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class DiagrammDetail extends AppCompatActivity {
@@ -23,8 +24,8 @@ public class DiagrammDetail extends AppCompatActivity {
 
     ArrayList<String> name;
     ArrayList<Float> betrag;
-    ArrayList<String> datum;
-    ArrayList<String> kategorie;
+    ArrayList<Calendar> datum;
+    ArrayList<Einnahmekategorie> kategorie;
     ArrayList<Boolean> wiederkehrend;
 
 

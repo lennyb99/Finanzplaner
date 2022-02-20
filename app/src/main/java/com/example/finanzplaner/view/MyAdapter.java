@@ -13,10 +13,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.finanzplaner.R;
 import com.example.finanzplaner.model.finanzverwaltung.Ausgabe;
 import com.example.finanzplaner.model.finanzverwaltung.Einnahme;
+import com.example.finanzplaner.model.finanzverwaltung.Einnahmekategorie;
 import com.example.finanzplaner.model.finanzverwaltung.Verwaltung;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -26,10 +28,10 @@ public class MyAdapter extends RecyclerView. Adapter<MyAdapter.ViewHolder> {
     Context context;
     ArrayList<String> name;
     private ArrayList<Float> betrag;
-    private ArrayList<String> datum;
-    private ArrayList<String> einnahmekategorie;
+    private ArrayList<Calendar> datum;
+    private ArrayList<Einnahmekategorie> einnahmekategorie;
     private ArrayList<Boolean> wiederkehrend;
-    public MyAdapter(ArrayList<String> name, ArrayList<Float> betrag, ArrayList<String> datum, ArrayList<String> einnahmekategorie, ArrayList<Boolean> wiederkehrend) {
+    public MyAdapter(ArrayList<String> name, ArrayList<Float> betrag, ArrayList<Calendar> datum, ArrayList<Einnahmekategorie> einnahmekategorie, ArrayList<Boolean> wiederkehrend) {
         this.name = name;
         this.betrag = betrag;
         this.datum = datum;
@@ -60,8 +62,8 @@ public class MyAdapter extends RecyclerView. Adapter<MyAdapter.ViewHolder> {
         holder.titelTW.setText(name.get(position));
 
         holder.betragTW.setText(String.valueOf(betrag.get(position)));
-        holder.datumTW.setText(datum.get(position));
-        holder.kategorieTW.setText(einnahmekategorie.get(position));
+        holder.datumTW.setText( datum.get(position).getTime().toString());
+        holder.kategorieTW.setText(einnahmekategorie.get(position).getName());
         //holder.setText(einnahmekategorie[position]);
 
     }
