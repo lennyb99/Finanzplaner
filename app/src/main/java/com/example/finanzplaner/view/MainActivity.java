@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         DB.db.daoSetup();
         //TESTS
         DB.ausgabe.insertAusgabe(new Ausgabe("Auto", 25.6f, new Ausgabekategorie("Arbeit"), false));
-        DB.einnahme.insertEinnahme(new Einnahme("Auto", 25.6f, new Einnahmekategorie("Arbeit"), false));
+        DB.einnahme.insertEinnahme(new Einnahme("Auto", 25.6f, false, new Einnahmekategorie("Arbeit")));
         DB.einnahmekategorie.insertEinnahmekategorie(new Einnahmekategorie("Arbeit"));
 
 
