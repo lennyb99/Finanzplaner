@@ -14,13 +14,28 @@ public class Einnahme {
     private int id;
     private String name;
     private String datum;
-    private boolean repetetiv;
-    private Einnahmekategorie einnahmekategorie;
+    private boolean wiederkehrend;
+    //private Einnahmekategorie einnahmekategorie;
 
     public Einnahme(String name, boolean repetetiv) {
         this.name = name;
-        this.repetetiv = repetetiv;
+        this.repetitiv = repetetiv;
         datum = Calendar.getInstance().toString();
+    }
+
+    //Getter und Setter
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDatum() {
@@ -32,26 +47,13 @@ public class Einnahme {
     }
 
     public boolean isRepetetiv() {
-        return repetetiv;
+        return wiederkehrend;
     }
 
     public void setRepetetiv(boolean repetetiv) {
-        this.repetetiv = repetetiv;
+        this.wiederkehrend = repetetiv;
     }
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 }
