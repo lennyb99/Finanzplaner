@@ -32,4 +32,6 @@ public class AusgabeManager {
     public static void setAusgaben(List<Ausgabe> ausgaben) {
         AusgabeManager.ausgaben = ausgaben;
     }
+
+
 }
