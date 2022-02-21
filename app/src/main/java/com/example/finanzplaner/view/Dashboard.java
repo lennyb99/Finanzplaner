@@ -46,15 +46,16 @@ public class Dashboard extends AppCompatActivity implements IObserver{
 
         pieChart = findViewById(R.id.pieChart);
         pieChart.setUsePercentValues(true);
-        pieEntryList.add(new PieEntry(10,"India"));
-        pieEntryList.add(new PieEntry(5,"US"));
-        pieEntryList.add(new PieEntry(7,"UK"));
-        pieEntryList.add(new PieEntry(3,"NZ"));
-        PieDataSet pieDataSet = new PieDataSet(pieEntryList,"country");
+        pieEntryList.add(new PieEntry(10,"Tesla"));
+        pieEntryList.add(new PieEntry(5,"Essen"));
+        pieEntryList.add(new PieEntry(7,"Miete"));
+        pieEntryList.add(new PieEntry(3,"Hoes"));
+        PieDataSet pieDataSet = new PieDataSet(pieEntryList,"Ausgaben");
         pieDataSet.setColors(ColorTemplate.PASTEL_COLORS);
         pieData = new PieData(pieDataSet);
         pieChart.setData(pieData);
         pieChart.invalidate();
+        pieChart.getDescription().setEnabled(false);
     }
 
 
