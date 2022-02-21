@@ -8,6 +8,8 @@ import android.os.Bundle;
 import com.example.finanzplaner.R;
 import com.example.finanzplaner.controller.DashboardController;
 import com.example.finanzplaner.model.finanzverwaltung.Ausgabe;
+import com.example.finanzplaner.model.finanzverwaltung.Einnahme;
+import com.example.finanzplaner.model.finanzverwaltung.Einnahmekategorie;
 import com.example.finanzplaner.model.finanzverwaltung.Verwaltung;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.PieData;
@@ -16,6 +18,7 @@ import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,17 +31,33 @@ public class Dashboard extends AppCompatActivity implements IObserver{
     PieChart pieChart;
     PieData pieData;
     List<PieEntry> pieEntryList = new ArrayList<>();
+    List<Einnahme> einnahmen;
     DashboardController dbController;
     FloatingActionButton eintraegeHinzufuegen;
     FloatingActionButton diagrammDetailButton;
+    ArrayList<String> name;
+    ArrayList<Float> betrag;
+    ArrayList<LocalDate> datum;
+    ArrayList<Einnahmekategorie> kategorie;
+    ArrayList<Boolean> wiederkehrend;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
+
         verwaltung = (Verwaltung) getIntent().getSerializableExtra("Verwaltung");
         verwaltung.anmelden(this);
+
+        einnahmen = (verwaltung.getEinnahmen());
+        name = new ArrayList<>();
+        betrag = new ArrayList<>();
+        datum = new ArrayList<>();
+        kategorie = new ArrayList<>();
+        wiederkehrend = new ArrayList<>();
+        erstelleListen();
+
 
         eintraegeHinzufuegen = (FloatingActionButton) findViewById(R.id.hinzufuegen);
         diagrammDetailButton = (FloatingActionButton) findViewById(R.id.diagrammdetail_button);
@@ -46,15 +65,46 @@ public class Dashboard extends AppCompatActivity implements IObserver{
 
         pieChart = findViewById(R.id.pieChart);
         pieChart.setUsePercentValues(true);
-        pieEntryList.add(new PieEntry(10,"India"));
-        pieEntryList.add(new PieEntry(5,"US"));
-        pieEntryList.add(new PieEntry(7,"UK"));
-        pieEntryList.add(new PieEntry(3,"NZ"));
+        erstellePieChart();
         PieDataSet pieDataSet = new PieDataSet(pieEntryList,"country");
         pieDataSet.setColors(ColorTemplate.PASTEL_COLORS);
         pieData = new PieData(pieDataSet);
         pieChart.setData(pieData);
         pieChart.invalidate();
+    }
+
+    private void erstelleListen() {
+        if(name.size()!=0) {
+            name.clear();
+            betrag.clear();
+            datum.clear();
+            kategorie.clear();
+            wiederkehrend.clear();
+        }
+        for (int i = 0; i < einnahmen.size(); i++) {
+            name.add(einnahmen.get(i).getName());
+        }
+        for (int i = 0; i < einnahmen.size(); i++) {
+            betrag.add(einnahmen.get(i).getBetrag());
+        }
+        for (int i = 0; i < einnahmen.size(); i++) {
+            datum.add(einnahmen.get(i).getDatum());
+        }
+        for (int i = 0; i < einnahmen.size(); i++) {
+            kategorie.add(einnahmen.get(i).getEinnahmekategorie());
+        }
+        for (int i = 0; i < einnahmen.size(); i++) {
+            wiederkehrend.add(einnahmen.get(i).isWiederkehrend());
+        }
+    }
+
+    private void erstellePieChart(){
+
+        for (int i = 0; i < einnahmen.size(); i++) {
+            pieEntryList.add(new PieEntry(betrag.get(i),name.get(i)));
+
+        }
+
     }
 
 

@@ -67,7 +67,6 @@ public class DiagrammDetail extends AppCompatActivity implements IObserver{
 
         pieChart = findViewById(R.id.pieChart2);
         pieChart.setUsePercentValues(true);
-
         erstellePieChart();
         PieDataSet pieDataSet = new PieDataSet(pieEntryList,"Ausgabe");
         pieDataSet.setColors(ColorTemplate.PASTEL_COLORS);
@@ -80,11 +79,13 @@ public class DiagrammDetail extends AppCompatActivity implements IObserver{
     }
 
     private void erstelleListen() {
+        if(name.size()!=0) {
             name.clear();
             betrag.clear();
             datum.clear();
             kategorie.clear();
             wiederkehrend.clear();
+        }
 
         for (int i = 0; i < einnahmen.size(); i++) {
             name.add(einnahmen.get(i).getName());
