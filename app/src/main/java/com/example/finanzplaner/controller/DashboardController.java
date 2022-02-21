@@ -8,36 +8,32 @@ import android.view.View;
 import com.example.finanzplaner.view.Action;
 import com.example.finanzplaner.view.Dashboard;
 import com.example.finanzplaner.view.DiagrammDetail;
-import com.github.mikephil.charting.charts.PieChart;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class DashboardController implements Controller{
 
 
     private FloatingActionButton eintraegeHinzufuegen;
-    private FloatingActionButton DiagrammDetails;
+    private FloatingActionButton diagrammDetailButton;
     private Dashboard dashboardView;
 
     public DashboardController(Dashboard dashboard){
 
         dashboardView = dashboard;
         eintraegeHinzufuegen = dashboardView.getActionButton();
-        DiagrammDetails = dashboardView.getActionButtonDetails();
-
-        DiagrammDetails.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.v("Diagramm","Test");
-                dashboardView.startNewActivity(DiagrammDetail.class);
-
-            }
-        });
-
+        diagrammDetailButton = dashboardView.getDiagrammDetailButton();
 
         eintraegeHinzufuegen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 dashboardView.startNewActivity(Action.class);
+            }
+        });
+
+        diagrammDetailButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dashboardView.startNewActivity(DiagrammDetail.class);
             }
         });
 

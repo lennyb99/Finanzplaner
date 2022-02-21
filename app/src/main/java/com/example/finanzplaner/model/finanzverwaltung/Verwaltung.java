@@ -120,7 +120,8 @@ public class Verwaltung implements IObservable, Serializable {
         return ausgaben;
     }
 
-    public List<Einnahme> getEinnahmen(){
+    public List<Einnahme> getEinnahmen() {
+        getEinnahmenFromDB();
         return einnahmen;
     }
 

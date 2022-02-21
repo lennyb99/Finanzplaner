@@ -35,14 +35,15 @@ public class DiagrammDetail extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diagrammdetail);
         verwaltung = (Verwaltung) getIntent().getSerializableExtra("Verwaltung");
-        einnahmen = new ArrayList<>();
+        einnahmen = (verwaltung.getEinnahmen());
         name = new ArrayList<>();
         betrag = new ArrayList<>();
         datum = new ArrayList<>();
         kategorie = new ArrayList<>();
         wiederkehrend = new ArrayList<>();
 
-        einnahmen.add(new Einnahme("Apfel",1,false,new Einnahmekategorie("Essen")));
+        erstelleListen();
+        /*einnahmen.add(new Einnahme("Apfel",1,false,new Einnahmekategorie("Essen")));
         einnahmen.add(new Einnahme("Birne",1,false,new Einnahmekategorie("Essen")));
         einnahmen.add(new Einnahme("Kirschen",1,false,new Einnahmekategorie("Essen")));
         einnahmen.add(new Einnahme("Kuchen",1,false,new Einnahmekategorie("Essen")));
@@ -57,7 +58,8 @@ public class DiagrammDetail extends AppCompatActivity {
         einnahmen.add(new Einnahme("Kuchen",1,false,new Einnahmekategorie("Essen")));
         einnahmen.add(new Einnahme("Kuchen",1,false,new Einnahmekategorie("Essen")));
         einnahmen.add(new Einnahme("Kuchen",1,false,new Einnahmekategorie("Essen")));
-        erstelleListen();
+        */
+
 
         adapter = new MyAdapter(this, name,betrag,datum,kategorie,wiederkehrend);
         recyclerView = findViewById(R.id.recyclerview);
