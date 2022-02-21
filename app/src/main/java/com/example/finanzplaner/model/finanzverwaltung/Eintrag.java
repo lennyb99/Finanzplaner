@@ -33,6 +33,13 @@ public abstract class Eintrag {
                 '}';
     }
 
+    public Eintrag(String name, float betrag, boolean wiederkehrend, String datum) {
+        this.name = name;
+        this.betrag = betrag;
+        this.wiederkehrend = wiederkehrend;
+        this.datum = LocalDate.parse(datum);
+    }
+
     public String getFormattedDatum() {
         String formattedDate = datum.format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
         return formattedDate;

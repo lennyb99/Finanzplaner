@@ -34,6 +34,7 @@ public class EinnahmeView extends AppCompatActivity implements IObserver{
     private EditText datum;
     private Button kategorieView;
     private Spinner kategorienSpinner;
+    private Button zurueck;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +53,7 @@ public class EinnahmeView extends AppCompatActivity implements IObserver{
         datum = (EditText) findViewById(R.id.datum);
         kategorieView = (Button) findViewById(R.id.kategoriebutton);
         kategorienSpinner = (Spinner) findViewById(R.id.kategorie2);
+        zurueck = (Button) findViewById(R.id.zurueck);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, kategorieItemsString);
         kategorienSpinner.setAdapter(adapter);
@@ -81,6 +83,10 @@ public class EinnahmeView extends AppCompatActivity implements IObserver{
 
     public Button getKategorieView(){
         return kategorieView;
+    }
+
+    public Button getZurueck() {
+        return zurueck;
     }
 
     public void startNewActivity(Class dest){
