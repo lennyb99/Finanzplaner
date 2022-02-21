@@ -11,7 +11,7 @@ import com.example.finanzplaner.R;
 import com.example.finanzplaner.controller.KategorieController;
 import com.example.finanzplaner.model.finanzverwaltung.Verwaltung;
 
-public class KategorieView extends AppCompatActivity {
+public class KategorieView extends AppCompatActivity implements IObserver{
 
     private KategorieController katController;
     private Verwaltung verwaltung;
@@ -61,5 +61,8 @@ public class KategorieView extends AppCompatActivity {
     }
 
 
+    @Override
+    public void update() {
 
+    }
 }

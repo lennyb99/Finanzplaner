@@ -20,7 +20,7 @@ import com.example.finanzplaner.model.finanzverwaltung.Verwaltung;
 
 import java.util.List;
 
-public class EinnahmeView extends AppCompatActivity {
+public class EinnahmeView extends AppCompatActivity implements IObserver{
 
     private EinnahmeController einnahmeController;
     private Verwaltung verwaltung;
@@ -41,6 +41,7 @@ public class EinnahmeView extends AppCompatActivity {
         setContentView(R.layout.activity_einnahme);
 
         verwaltung = (Verwaltung) getIntent().getSerializableExtra("Verwaltung");
+        verwaltung.anmelden(this);
 
         kategorieItemsString = verwaltung.getEinnahmekategorieItemsString();
         kategorieItems = verwaltung.getEinnahmekategorieItems();
@@ -55,7 +56,7 @@ public class EinnahmeView extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, kategorieItemsString);
         kategorienSpinner.setAdapter(adapter);
 
-        einnahmeController = new EinnahmeController(this, kategorieItems, verwaltung);
+        einnahmeController = new EinnahmeController(this, verwaltung);
 
     }
 
@@ -83,9 +84,17 @@ public class EinnahmeView extends AppCompatActivity {
     }
 
     public void startNewActivity(Class dest){
-        Log.v("mydebug", "debug1");
         startActivity(new Intent(EinnahmeView.this, dest).putExtra("Verwaltung", verwaltung));
-        Log.v("mydebug", "debug1.2");
     }
+
+    @Override
+    public void update() {
+        kategorieItemsString = verwaltung.getEinnahmekategorieItemsString();
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, kategorieItemsString);
+        kategorienSpinner.setAdapter(adapter);
+    }
+
+
+
 
 }
