@@ -16,18 +16,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.543" />
+        app:layout_constraintVertical_bias="0.408" />
 
     <Button
         android:id="@+id/bestaetigen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="enter"
+        android:text="Bestätigen"
         app:layout_constraintBottom_toBottomOf="@+id/zurueck"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/zurueck"
         app:layout_constraintTop_toTopOf="@+id/zurueck" />
+
+
 
     <Spinner
         android:id="@+id/kategorie2"
@@ -90,11 +92,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="44dp"
-        android:text="zurück"
+        android:text="Abbrechen"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/bestaetigen"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/datum"
         app:layout_constraintVertical_bias="0.868" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="79dp"
+        android:layout_height="41dp"
+        android:text="Format: yyyy-mm-dd"
+        app:layout_constraintBottom_toBottomOf="@+id/datum"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/datum"
+        app:layout_constraintTop_toTopOf="@+id/datum" />
 </androidx.constraintlayout.widget.ConstraintLayout>
