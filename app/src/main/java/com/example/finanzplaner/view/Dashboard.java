@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 import com.example.finanzplaner.R;
 import com.example.finanzplaner.controller.DashboardController;
+import com.example.finanzplaner.model.finanzverwaltung.Ausgabe;
 import com.example.finanzplaner.model.finanzverwaltung.Verwaltung;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.PieData;
@@ -22,6 +23,8 @@ public class Dashboard extends AppCompatActivity implements IObserver{
 
     private Verwaltung verwaltung;
 
+    private List<Ausgabe> ausgabenList;
+
     PieChart pieChart;
     PieData pieData;
     List<PieEntry> pieEntryList = new ArrayList<>();
@@ -35,6 +38,7 @@ public class Dashboard extends AppCompatActivity implements IObserver{
         setContentView(R.layout.activity_dashboard);
 
         verwaltung = (Verwaltung) getIntent().getSerializableExtra("Verwaltung");
+        verwaltung.anmelden(this);
 
         eintraegeHinzufuegen = (FloatingActionButton) findViewById(R.id.hinzufuegen);
         diagrammDetailButton = (FloatingActionButton) findViewById(R.id.diagrammdetail_button);
@@ -53,10 +57,7 @@ public class Dashboard extends AppCompatActivity implements IObserver{
         pieChart.invalidate();
     }
 
-    @Override
-    public void update() {
 
-    }
     public FloatingActionButton getActionButton(){
         return eintraegeHinzufuegen;
     }
@@ -64,6 +65,13 @@ public class Dashboard extends AppCompatActivity implements IObserver{
 
     public void startNewActivity(Class dest){
         startActivity(new Intent(Dashboard.this, dest).putExtra("Verwaltung", verwaltung));
+    }
+
+    @Override
+    public void update() {
+        ausgabenList = verwaltung.getAusgaben();
+        // Einnahmen wurde überschrieben. Der PieChart kann jetzt nochmal neu aufgebaut / aktualisiert werden
+
     }
 
 }

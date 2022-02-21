@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-public class DiagrammDetail extends AppCompatActivity {
+public class DiagrammDetail extends AppCompatActivity implements IObserver{
     RecyclerView recyclerView;
     Verwaltung verwaltung;
     List<Einnahme> einnahmen;
@@ -35,7 +35,10 @@ public class DiagrammDetail extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diagrammdetail);
+
         verwaltung = (Verwaltung) getIntent().getSerializableExtra("Verwaltung");
+        verwaltung.anmelden(this);
+
         einnahmen = (verwaltung.getEinnahmen());
         name = new ArrayList<>();
         betrag = new ArrayList<>();
@@ -92,4 +95,10 @@ public class DiagrammDetail extends AppCompatActivity {
     }
 
 
+    @Override
+    public void update() {
+        einnahmen = verwaltung.getEinnahmen();
+        // Einnahmen wurde überschrieben. Der RecyclerView kann jetzt nochmal neu aufgebaut / aktualisiert werden
+
+    }
 }
