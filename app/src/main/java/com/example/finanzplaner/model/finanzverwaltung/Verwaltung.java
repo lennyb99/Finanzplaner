@@ -3,13 +3,20 @@ package com.example.finanzplaner.model.finanzverwaltung;
 import android.util.Log;
 import android.view.View;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import com.example.finanzplaner.db.DB;
 import com.example.finanzplaner.model.IObservable;
 import com.example.finanzplaner.view.IObserver;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class Verwaltung implements IObservable, Serializable {
 
@@ -121,8 +128,16 @@ public class Verwaltung implements IObservable, Serializable {
         return EinnahmekategorieManager.findEinnahmekategorie(name);
     }
 
+    public Map<Ausgabekategorie,Float> getKategoriegewichtungen(){
+        Map<Ausgabekategorie,Float> gewichtungen = new HashMap<Ausgabekategorie, Float>();
+        for (Ausgabekategorie ausgabekategorie: AusgabekategorieManager.getAusgabekategorieList()) {
+            gewichtungen.put(ausgabekategorie,0f);
+        }
 
-
-
+        for (Ausgabe ausgabe: AusgabeManager.getAusgaben() ) {
+            gewichtungen.put(ausgabe.getAusgabekategorie(), gewichtungen.get(ausgabe.getAusgabekategorie()) + ausgabe.getBetrag());
+        }
+        return gewichtungen;
+    }
 
 }
