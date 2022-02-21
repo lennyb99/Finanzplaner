@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.example.finanzplaner.db.DB;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AusgabeManager {
@@ -11,7 +12,7 @@ public class AusgabeManager {
     private static List<Ausgabe> ausgaben;
 
     public AusgabeManager(){
-
+        ausgaben = new ArrayList<>();
     }
 
     public static void addAusgabe(Ausgabe ausgabe){

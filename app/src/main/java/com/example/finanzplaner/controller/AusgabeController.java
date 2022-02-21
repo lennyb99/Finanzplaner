@@ -1,9 +1,11 @@
 package com.example.finanzplaner.controller;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.finanzplaner.model.finanzverwaltung.Ausgabe;
 import com.example.finanzplaner.model.finanzverwaltung.Ausgabekategorie;
@@ -45,19 +47,26 @@ public class AusgabeController implements Controller{
         bestaetigung.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                betragWert = Float.valueOf(betrag.getText().toString());
-                nameWert = name.getText().toString();
-                datumWert = datum.getText().toString();
-                kategorieWert = kategorieSpinner.getSelectedItem().toString();
+                if(!betrag.getText().toString().equals("") && !name.getText().toString().equals("") && !datum.getText().toString().equals("") && !(kategorieSpinner==null)){
+                    betragWert = Float.valueOf(betrag.getText().toString());
+                    nameWert = name.getText().toString();
+                    datumWert = datum.getText().toString();
+                    kategorieWert = kategorieSpinner.getSelectedItem().toString();
+                    verwaltung.addAusgabe(new Ausgabe(nameWert, betragWert,false, verwaltung.findAusgabekategorie(kategorieWert), datumWert));
+
+                    ausgabeView.finish();
+                }else if(!betrag.getText().toString().equals("") && !name.getText().toString().equals("") && datum.getText().toString().equals("") && !(kategorieSpinner==null)){
+                    betragWert = Float.valueOf(betrag.getText().toString());
+                    nameWert = name.getText().toString();
+                    kategorieWert = kategorieSpinner.getSelectedItem().toString();
+                    verwaltung.addAusgabe(new Ausgabe(nameWert, betragWert,false, verwaltung.findAusgabekategorie(kategorieWert)));
+
+                    ausgabeView.finish();
+                }else{
+                    Toast.makeText(ausgabeView,"Bitte alle nötigen Felder ausfüllen", Toast.LENGTH_LONG).show();
+                }
 
 
-                verwaltung.addAusgabe(new Ausgabe(nameWert, betragWert,false, verwaltung.findAusgabekategorie(kategorieWert)));
-
-
-
-
-                //ausgabeView.startNewActivit+y(Dashboard.class);
-                ausgabeView.finish();
             }
         });
 

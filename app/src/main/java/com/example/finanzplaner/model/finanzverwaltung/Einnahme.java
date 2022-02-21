@@ -12,6 +12,11 @@ public class Einnahme extends Eintrag {
         this.einnahmekategorie = einnahmekategorie;
     }
 
+    public Einnahme(String name, float betrag, boolean wiederkehrend, Einnahmekategorie einnahmekategorie, String datum) {
+        super(name, betrag, wiederkehrend, datum);
+        this.einnahmekategorie = einnahmekategorie;
+    }
+
     //Getter und Setter
     public Einnahmekategorie getEinnahmekategorie() {
         return einnahmekategorie;
