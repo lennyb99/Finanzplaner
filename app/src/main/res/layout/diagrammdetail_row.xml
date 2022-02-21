@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background"
+    tools:context=".view.DiagrammDetail">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/relativeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="57dp"
+            android:layout_marginBottom="5dp"
+            >
+
+
+            <ImageView
+                android:id="@+id/RvThumbnail"
+                android:layout_width="53dp"
+                android:layout_height="52dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="4dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_launcher_background"
+                tools:ignore="ImageContrastCheck,VectorDrawableCompat" />
+
+            <TextView
+                android:id="@+id/RvBetrag"
+                android:layout_width="68dp"
+                android:layout_height="17dp"
+                android:text="19,99€"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/RvTitel"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <TextView
+                android:id="@+id/RvKategorie"
+                android:layout_width="43dp"
+                android:layout_height="26dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="4dp"
+                android:text="Kategorie"
+                android:textSize="10sp"
+                app:layout_constraintStart_toEndOf="@+id/RvThumbnail"
+                app:layout_constraintTop_toBottomOf="@+id/RvTitel" />
+
+            <TextView
+                android:id="@+id/RvDatum"
+                android:layout_width="89dp"
+                android:layout_height="12dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginLeft="28dp"
+                android:layout_marginTop="4dp"
+                android:text="datum"
+                android:textSize="10sp"
+                app:layout_constraintStart_toEndOf="@+id/RvKategorie"
+                app:layout_constraintTop_toBottomOf="@+id/RvTitel" />
+
+            <TextView
+                android:id="@+id/RvTitel"
+                android:layout_width="161dp"
+                android:layout_height="23dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="170dp"
+                android:layout_marginRight="170dp"
+                android:text="Titel"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/RvBetrag"
+                app:layout_constraintHorizontal_bias="0.046"
+                app:layout_constraintRight_toLeftOf="@+id/RvBetrag"
+                app:layout_constraintStart_toEndOf="@+id/RvThumbnail"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

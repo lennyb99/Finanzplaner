@@ -5,18 +5,18 @@ import androidx.room.TypeConverter;
 import com.example.finanzplaner.model.finanzverwaltung.Ausgabekategorie;
 import com.example.finanzplaner.model.finanzverwaltung.Einnahmekategorie;
 
-import java.util.Calendar;
+import java.time.LocalDate;
 
 public class Converters {
 
     @TypeConverter
-    public static String fromCalendarToString(Calendar c) {
-        return c.toString();
+    public static String fromCalendarToString(LocalDate ld) {
+        return ld.toString();
     }
 
     @TypeConverter
-    public static Calendar fromStringToCalendar(String date) {
-        return Calendar.getInstance();
+    public static LocalDate fromStringToLocalDate(String date) {
+        return LocalDate.parse(date);
     }
 
     //Kategorien

@@ -1,9 +1,12 @@
 package com.example.finanzplaner.model.finanzverwaltung;
 
+import android.annotation.SuppressLint;
+
 import androidx.annotation.NonNull;
 import androidx.room.PrimaryKey;
 
-import java.util.Calendar;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public abstract class Eintrag {
 
@@ -11,16 +14,24 @@ public abstract class Eintrag {
     private int id;
     private String name;
     private float betrag;
-    private Calendar datum;
+    private LocalDate datum;
     private boolean wiederkehrend;
-    //private Kategorie kategorie;
 
     public Eintrag(String name, float betrag, boolean wiederkehrend) {
         this.name = name;
         this.betrag = betrag;
-        datum = Calendar.getInstance();
+        datum = LocalDate.now();
         this.wiederkehrend = wiederkehrend;
-        //this.kategorie = kategorie;
+    }
+
+    public String getFormattedDatum() {
+        String formattedDate = datum.format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
+        return formattedDate;
+    }
+
+    public String getFormattedDatum(LocalDate ld) {
+        String formattedDate = ld.format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
+        return formattedDate;
     }
 
     //Getter und Setter
@@ -45,10 +56,10 @@ public abstract class Eintrag {
         this.betrag = betrag;
     }
 
-    public Calendar getDatum() {
+    public LocalDate getDatum() {
         return datum;
     }
-    public void setDatum(Calendar datum) {
+    public void setDatum(LocalDate datum) {
         this.datum = datum;
     }
 
@@ -59,12 +70,4 @@ public abstract class Eintrag {
         this.wiederkehrend = wiederkehrend;
     }
 
-    /*
-    public Kategorie getKategorie() {
-        return kategorie;
-    }
-    public void setKategorie(Kategorie kategorie) {
-        this.kategorie = kategorie;
-    }
-    */
 }
