@@ -11,6 +11,11 @@ import com.example.finanzplaner.R;
 import com.example.finanzplaner.model.finanzverwaltung.Einnahme;
 import com.example.finanzplaner.model.finanzverwaltung.Einnahmekategorie;
 import com.example.finanzplaner.model.finanzverwaltung.Verwaltung;
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -27,7 +32,9 @@ public class DiagrammDetail extends AppCompatActivity implements IObserver{
     ArrayList<LocalDate> datum;
     ArrayList<Einnahmekategorie> kategorie;
     ArrayList<Boolean> wiederkehrend;
-
+    PieChart pieChart;
+    PieData pieData;
+    List<PieEntry> pieEntryList = new ArrayList<>();
 
 
 
@@ -35,6 +42,9 @@ public class DiagrammDetail extends AppCompatActivity implements IObserver{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diagrammdetail);
+
+
+
 
         verwaltung = (Verwaltung) getIntent().getSerializableExtra("Verwaltung");
         verwaltung.anmelden(this);
@@ -47,22 +57,6 @@ public class DiagrammDetail extends AppCompatActivity implements IObserver{
         wiederkehrend = new ArrayList<>();
 
         erstelleListen();
-        /*einnahmen.add(new Einnahme("Apfel",1,false,new Einnahmekategorie("Essen")));
-        einnahmen.add(new Einnahme("Birne",1,false,new Einnahmekategorie("Essen")));
-        einnahmen.add(new Einnahme("Kirschen",1,false,new Einnahmekategorie("Essen")));
-        einnahmen.add(new Einnahme("Kuchen",1,false,new Einnahmekategorie("Essen")));
-        einnahmen.add(new Einnahme("Kuchen",1,false,new Einnahmekategorie("Essen")));
-        einnahmen.add(new Einnahme("Kuchen",1,false,new Einnahmekategorie("Essen")));
-        einnahmen.add(new Einnahme("Kuchen",1,false,new Einnahmekategorie("Essen")));
-        einnahmen.add(new Einnahme("Kuchen",1,false,new Einnahmekategorie("Essen")));
-        einnahmen.add(new Einnahme("Kuchen",1,false,new Einnahmekategorie("Essen")));
-        einnahmen.add(new Einnahme("Kuchen",1,false,new Einnahmekategorie("Essen")));
-        einnahmen.add(new Einnahme("Kuchen",1,false,new Einnahmekategorie("Essen")));
-        einnahmen.add(new Einnahme("Kuchen",1,false,new Einnahmekategorie("Essen")));
-        einnahmen.add(new Einnahme("Kuchen",1,false,new Einnahmekategorie("Essen")));
-        einnahmen.add(new Einnahme("Kuchen",1,false,new Einnahmekategorie("Essen")));
-        einnahmen.add(new Einnahme("Kuchen",1,false,new Einnahmekategorie("Essen")));
-        */
 
 
         adapter = new MyAdapter(this, name,betrag,datum,kategorie,wiederkehrend);
@@ -71,6 +65,17 @@ public class DiagrammDetail extends AppCompatActivity implements IObserver{
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        pieChart = findViewById(R.id.pieChart2);
+        pieChart.setUsePercentValues(true);
+
+        erstellePieChart();
+        PieDataSet pieDataSet = new PieDataSet(pieEntryList,"Ausgabe");
+        pieDataSet.setColors(ColorTemplate.PASTEL_COLORS);
+        pieData = new PieData(pieDataSet);
+        pieChart.setData(pieData);
+        pieChart.getDescription().setEnabled(false);
+
+        pieChart.invalidate();
 
     }
 
@@ -90,6 +95,15 @@ public class DiagrammDetail extends AppCompatActivity implements IObserver{
         }
         for (int i = 0; i < einnahmen.size(); i++) {
             wiederkehrend.add(einnahmen.get(i).isWiederkehrend());
+        }
+
+    }
+
+    private void erstellePieChart(){
+
+        for (int i = 0; i < einnahmen.size(); i++) {
+            pieEntryList.add(new PieEntry(betrag.get(i),name.get(i)));
+
         }
 
     }
