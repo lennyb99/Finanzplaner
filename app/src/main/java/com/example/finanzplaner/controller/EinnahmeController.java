@@ -4,6 +4,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.finanzplaner.model.finanzverwaltung.Einnahme;
 import com.example.finanzplaner.model.finanzverwaltung.Einnahmekategorie;
@@ -44,21 +45,26 @@ public class EinnahmeController {
         bestaetigung.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(!betrag.getText().toString().equals("") && !name.getText().toString().equals("") && !datum.getText().toString().equals("") && !(kategorieSpinner==null)){
+                    betragWert = Float.valueOf(betrag.getText().toString());
+                    nameWert = name.getText().toString();
+                    datumWert = datum.getText().toString();
+                    kategorieWert = kategorieSpinner.getSelectedItem().toString();
 
-                if(betrag.getText().toString().equals("") || name.getText().toString().equals("")){
+                    verwaltung.addEinnahme(new Einnahme(nameWert, betragWert, false, verwaltung.findEinnahmekategorie(kategorieWert),datumWert));
 
+                    einnahmeView.finish();
+                }else if(!betrag.getText().toString().equals("") && !name.getText().toString().equals("") && datum.getText().toString().equals("") && !(kategorieSpinner==null)){
+                    betragWert = Float.valueOf(betrag.getText().toString());
+                    nameWert = name.getText().toString();
+                    kategorieWert = kategorieSpinner.getSelectedItem().toString();
+
+                    verwaltung.addEinnahme(new Einnahme(nameWert, betragWert, false, verwaltung.findEinnahmekategorie(kategorieWert)));
+
+                    einnahmeView.finish();
+                }else{
+                    Toast.makeText(einnahmeView,"Bitte alle nötigen Felder ausfüllen", Toast.LENGTH_LONG).show();
                 }
-
-                betragWert = Float.valueOf(betrag.getText().toString());
-                nameWert = name.getText().toString();
-                datumWert = datum.getText().toString();
-                kategorieWert = kategorieSpinner.getSelectedItem().toString();
-
-                verwaltung.addEinnahme(new Einnahme(nameWert, betragWert, false, verwaltung.findEinnahmekategorie(kategorieWert)));
-
-
-                einnahmeView.finish();
-                //einnahmeView.startNewActivity(Dashboard.class);
             }
         });
 

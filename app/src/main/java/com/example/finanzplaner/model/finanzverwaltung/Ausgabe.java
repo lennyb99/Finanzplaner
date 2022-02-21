@@ -12,6 +12,11 @@ public class Ausgabe extends Eintrag {
         this.ausgabekategorie = ausgabekategorie;
     }
 
+    public Ausgabe(String name, float betrag, boolean wiederkehrend, Ausgabekategorie ausgabekategorie, String datum) {
+        super(name, betrag, wiederkehrend, datum);
+        this.ausgabekategorie = ausgabekategorie;
+    }
+
     //Getter und Setter
     public Ausgabekategorie getAusgabekategorie() {
         return ausgabekategorie;
