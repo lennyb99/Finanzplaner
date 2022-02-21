@@ -19,10 +19,16 @@ public interface AusgabeDao {
     @Delete
     public void deleteAusgabe(Ausgabe a);
 
+    @Query("DELETE FROM expense_table WHERE id = :id")
+    public void deleteAusgabe(int id);
+
     @Update
     public void updateAusgabe(Ausgabe a);
 
     @Query("SELECT * FROM expense_table")
     public List<Ausgabe> getAllAusgaben();
+
+    @Query("SELECT MAX(id) from expense_table")
+    public int getHighestId();
 
 }

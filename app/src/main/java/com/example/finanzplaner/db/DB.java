@@ -17,6 +17,9 @@ import com.example.finanzplaner.model.finanzverwaltung.Einnahmekategorie;
 @TypeConverters({Converters.class})
 public abstract class DB extends RoomDatabase {
 
+    public static int einnahmeIdCounter ;
+    public static int ausgabeIdCounter ;
+
     public static DB db;
 
     public static EinnahmeDao einnahme;
@@ -29,11 +32,17 @@ public abstract class DB extends RoomDatabase {
     public abstract EinnahmekategorieDao getEinnahmekategorieDao();
     public abstract AusgabekategorieDao getAusgabekategorieDao();
 
+
     public void daoSetup() {
         DB.einnahme = DB.db.getEinnahmeDao();
         DB.ausgabe = DB.db.getAusgabeDao();
         DB.einnahmekategorie = DB.db.getEinnahmekategorieDao();
         DB.ausgabekategorie = DB.db.getAusgabekategorieDao();
+    }
+
+    public void initHighesIds() {
+        einnahmeIdCounter = einnahme.getHighestId() + 1;
+        ausgabeIdCounter = ausgabe.getHighestId() + 1;
     }
 
 }
