@@ -20,7 +20,7 @@ import java.util.List;
 
 public class Dashboard extends AppCompatActivity implements IObserver{
 
-    Verwaltung verwaltung;
+    private Verwaltung verwaltung;
 
     PieChart pieChart;
     PieData pieData;

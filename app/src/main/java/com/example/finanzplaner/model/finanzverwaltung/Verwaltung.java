@@ -29,23 +29,32 @@ public class Verwaltung implements IObservable, Serializable {
         ausgabekategorien = new ArrayList<>();
         einnahmekategorien = new ArrayList<>();
 
-
-
     }
 
     public void addAusgabekategorie(Ausgabekategorie kat){
+        for (Ausgabekategorie ak: ausgabekategorien) {
+            if(ak.getName().equals(kat.getName())){
+                return;
+            }
+        }
         ausgabekategorien.add(kat);
+        DB.ausgabekategorie.insertAusgabekateogrie(kat);
     }
 
     public void addEinnahmekategorie(Einnahmekategorie kat){
+        for (Einnahmekategorie ek: einnahmekategorien) {
+            if(ek.getName().equals(kat.getName())){
+                return;
+            }
+        }
         einnahmekategorien.add(kat);
+        DB.einnahmekategorie.insertEinnahmekategorie(kat);
     }
 
     public void addAusgabe(Ausgabe ausgabe){
         ausgaben.add(ausgabe);
         Log.v("mydebug",ausgabe.getName()+ausgabe.getBetrag()+ausgabe.isWiederkehrend()+ausgabe.getAusgabekategorie().toString());
         DB.ausgabe.insertAusgabe(ausgabe);
-
     }
 
     public void addEinnahme(Einnahme einnahme){
@@ -110,9 +119,6 @@ public class Verwaltung implements IObservable, Serializable {
     }
 
     public List<String> getAusgabekategorieItemsString(){
-        ausgabekategorien.add(new Ausgabekategorie("Hund"));
-        ausgabekategorien.add(new Ausgabekategorie("Urlaub"));
-        ausgabekategorien.add(new Ausgabekategorie("Essen"));
         List<String> temp = new ArrayList<>();
         for (Ausgabekategorie kategorie: ausgabekategorien) {
             temp.add(kategorie.toString());
@@ -134,9 +140,6 @@ public class Verwaltung implements IObservable, Serializable {
     }
 
     public List<String> getEinnahmekategorieItemsString(){
-        einnahmekategorien.add(new Einnahmekategorie("Taschengeld"));
-        einnahmekategorien.add(new Einnahmekategorie("Beruf"));
-        einnahmekategorien.add(new Einnahmekategorie("Nebenverdienst"));
         List<String> temp = new ArrayList<>();
         for (Einnahmekategorie kategorie: einnahmekategorien) {
             temp.add(kategorie.toString());

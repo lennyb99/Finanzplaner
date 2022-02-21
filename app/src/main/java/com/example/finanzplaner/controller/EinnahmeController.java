@@ -1,19 +1,15 @@
 package com.example.finanzplaner.controller;
 
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import com.example.finanzplaner.model.finanzverwaltung.Ausgabekategorie;
 import com.example.finanzplaner.model.finanzverwaltung.Einnahme;
 import com.example.finanzplaner.model.finanzverwaltung.Einnahmekategorie;
 import com.example.finanzplaner.model.finanzverwaltung.Verwaltung;
-import com.example.finanzplaner.view.AusgabeView;
-import com.example.finanzplaner.view.Dashboard;
 import com.example.finanzplaner.view.EinnahmeView;
-import com.example.finanzplaner.view.Kategorie;
+import com.example.finanzplaner.view.KategorieView;
 
 import java.util.List;
 
@@ -74,7 +70,7 @@ public class EinnahmeController {
             @Override
             public void onClick(View view) {
 
-                einnahmeView.startNewActivity(Kategorie.class);
+                einnahmeView.startNewActivity(KategorieView.class);
 
             }
         });
