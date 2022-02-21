@@ -20,7 +20,7 @@ import java.util.List;
 
 public class Dashboard extends AppCompatActivity implements IObserver{
 
-    Verwaltung verwaltung;
+    private Verwaltung verwaltung;
 
 
 
@@ -51,7 +51,7 @@ public class Dashboard extends AppCompatActivity implements IObserver{
         pieEntryList.add(new PieEntry(7,"UK"));
         pieEntryList.add(new PieEntry(3,"NZ"));
         PieDataSet pieDataSet = new PieDataSet(pieEntryList,"country");
-        pieDataSet.setColors(ColorTemplate.JOYFUL_COLORS);
+        pieDataSet.setColors(ColorTemplate.PASTEL_COLORS);
         pieData = new PieData(pieDataSet);
         pieChart.setData(pieData);
         pieChart.invalidate();

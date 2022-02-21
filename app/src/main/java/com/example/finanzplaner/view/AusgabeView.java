@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.example.finanzplaner.R;
 import com.example.finanzplaner.controller.AusgabeController;
 import com.example.finanzplaner.model.finanzverwaltung.Ausgabekategorie;
+import com.example.finanzplaner.model.finanzverwaltung.Kategorie;
 import com.example.finanzplaner.model.finanzverwaltung.Verwaltung;
 
 import java.util.List;
@@ -80,7 +81,7 @@ public class AusgabeView extends AppCompatActivity implements IObserver{
     }
 
     public void startNewActivity(Class dest){
-        startActivity(new Intent(AusgabeView.this, dest));
+        startActivity(new Intent(AusgabeView.this, dest).putExtra("Verwaltung",verwaltung));
     }
 
 

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -81,7 +82,9 @@ public class EinnahmeView extends AppCompatActivity {
     }
 
     public void startNewActivity(Class dest){
-        startActivity(new Intent(EinnahmeView.this, dest));
+        Log.v("mydebug", "debug1");
+        startActivity(new Intent(EinnahmeView.this, dest).putExtra("Verwaltung", verwaltung));
+        Log.v("mydebug", "debug1.2");
     }
 
 }

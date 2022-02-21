@@ -8,71 +8,6 @@
     tools:context=".view.EinnahmeView">
 
     <Button
-        android:id="@+id/bestaetigen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="enter"
-        app:layout_constraintBottom_toBottomOf="@+id/zurueck"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.712"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/zurueck"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <EditText
-        android:id="@+id/titel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        app:layout_constraintBottom_toTopOf="@+id/betrag"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.462"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.704" />
-
-    <EditText
-        android:id="@+id/betrag"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="44dp"
-        android:ems="10"
-        android:importantForAutofill="no"
-        android:inputType="numberDecimal"
-        app:layout_constraintBottom_toTopOf="@+id/datum"
-        app:layout_constraintEnd_toEndOf="@+id/titel"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/titel"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <EditText
-        android:id="@+id/date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="date"
-        app:layout_constraintBottom_toTopOf="@+id/kategoriebutton"
-        app:layout_constraintEnd_toEndOf="@+id/betrag"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/betrag"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/zurueck"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="zurück"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.232"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/kategoriebutton"
-        app:layout_constraintVertical_bias="0.74" />
-
-    <Button
         android:id="@+id/kategoriebutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -81,18 +16,82 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.636" />
+        app:layout_constraintVertical_bias="0.543" />
+
+    <Button
+        android:id="@+id/bestaetigen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="enter"
+        app:layout_constraintBottom_toBottomOf="@+id/zurueck"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/zurueck"
+        app:layout_constraintTop_toTopOf="@+id/zurueck" />
 
     <Spinner
         android:id="@+id/kategorie2"
-        android:layout_width="220dp"
-        android:layout_height="33dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="207dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="12dp"
         android:spinnerMode="dropdown"
-        app:layout_constraintBottom_toTopOf="@+id/kategoriebutton"
         app:layout_constraintEnd_toEndOf="@+id/datum"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/datum"
+        app:layout_constraintTop_toBottomOf="@+id/datum" />
+
+    <EditText
+        android:id="@+id/datum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:ems="10"
+        android:inputType="date"
+        android:text="Datum eingeben"
+        app:layout_constraintBottom_toTopOf="@+id/kategorie2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titel" />
+
+    <EditText
+        android:id="@+id/titel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Titel eingeben"
+        app:layout_constraintBottom_toTopOf="@+id/datum"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/betrag" />
+
+    <EditText
+        android:id="@+id/betrag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="10dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:text="Betrag eingeben"
+        app:layout_constraintBottom_toTopOf="@+id/titel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/zurueck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="44dp"
+        android:text="zurück"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/bestaetigen"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/datum"
-        app:layout_constraintVertical_bias="0.061" />
+        app:layout_constraintVertical_bias="0.868" />
 </androidx.constraintlayout.widget.ConstraintLayout>

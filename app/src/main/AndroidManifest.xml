@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Finanzplaner">
-        <activity android:name=".view.Kategorie"></activity>
+        <activity android:name=".view.KategorieView"></activity>
         <activity
             android:name=".view.DiagrammDetail"
             android:exported="false" />
