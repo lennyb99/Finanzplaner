@@ -7,16 +7,17 @@
     android:background="@drawable/background"
     tools:context=".view.Dashboard">
 
-
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/hinzufuegen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
+<<<<<<< HEAD
         app:srcCompat="@android:drawable/ic_input_add"
         tools:ignore="SpeakableTextPresentCheck" />
 
@@ -32,67 +33,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@android:drawable/ic_menu_search"
         tools:ignore="SpeakableTextPresentCheck" />
+=======
+        app:srcCompat="@android:drawable/ic_input_add" />
+>>>>>>> parent of 10a4e7a (cardview api added (synch gradle!))
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="413dp"
-        android:layout_height="541dp"
-        android:layout_marginTop="56dp"
-        android:gravity="center_horizontal|center_vertical"
-        android:orientation="vertical"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/kuerzlich"
+        android:layout_width="333dp"
+        android:layout_height="208dp"
+        app:layout_constraintBottom_toTopOf="@+id/hinzufuegen"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardView"
-            android:layout_width="382dp"
-            android:layout_height="300dp"
-            android:layout_row="0"
-            android:layout_column="0"
-            android:layout_columnWeight="1"
-            android:layout_margin="12dp"
-            android:layout_marginTop="131dp"
-            android:elevation="6dp"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="6dp"
-            tools:ignore="MissingConstraints">
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"/>
 
 
-            <com.github.mikephil.charting.charts.PieChart
-                android:id="@+id/pieChart"
-                android:layout_width="302dp"
-                android:layout_height="206dp"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:layout_gravity="center"
-                tools:ignore="MissingConstraints">
+    <com.github.mikephil.charting.charts.PieChart
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/pieChart"/>
 
-            </com.github.mikephil.charting.charts.PieChart>
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/kuerzlich"
-            android:layout_width="264dp"
-            android:layout_height="157dp"
-            android:layout_marginTop="12dp">
-
-        </androidx.recyclerview.widget.RecyclerView>
-
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/welcome"
-        android:layout_width="217dp"
-        android:layout_height="31dp"
-        android:text="Willkommen zurück!"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.087"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.64" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
