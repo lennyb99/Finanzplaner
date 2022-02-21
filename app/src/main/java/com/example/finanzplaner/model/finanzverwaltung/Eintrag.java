@@ -1,7 +1,5 @@
 package com.example.finanzplaner.model.finanzverwaltung;
 
-import android.annotation.SuppressLint;
-
 import androidx.annotation.NonNull;
 import androidx.room.PrimaryKey;
 
@@ -24,7 +22,18 @@ public abstract class Eintrag {
         this.wiederkehrend = wiederkehrend;
     }
 
-    public Eintrag(String name, float betrag, boolean wiederkehrend, String datum){
+    @Override
+    public String toString() {
+        return "Eintrag{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", betrag=" + betrag +
+                ", datum=" + datum +
+                ", wiederkehrend=" + wiederkehrend +
+                '}';
+    }
+
+    public Eintrag(String name, float betrag, boolean wiederkehrend, String datum) {
         this.name = name;
         this.betrag = betrag;
         this.wiederkehrend = wiederkehrend;
