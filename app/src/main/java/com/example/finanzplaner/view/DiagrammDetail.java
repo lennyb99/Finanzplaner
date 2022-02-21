@@ -12,6 +12,7 @@ import com.example.finanzplaner.model.finanzverwaltung.Einnahme;
 import com.example.finanzplaner.model.finanzverwaltung.Einnahmekategorie;
 import com.example.finanzplaner.model.finanzverwaltung.Verwaltung;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -23,7 +24,7 @@ public class DiagrammDetail extends AppCompatActivity {
     MyAdapter adapter;
     ArrayList<String> name;
     ArrayList<Float> betrag;
-    ArrayList<Calendar> datum;
+    ArrayList<LocalDate> datum;
     ArrayList<Einnahmekategorie> kategorie;
     ArrayList<Boolean> wiederkehrend;
 

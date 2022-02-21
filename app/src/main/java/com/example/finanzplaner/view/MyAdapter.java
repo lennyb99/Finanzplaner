@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.finanzplaner.R;
 import com.example.finanzplaner.model.finanzverwaltung.Einnahmekategorie;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -23,13 +25,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     //Arrays um aus der Liste von Ojekten mehrere Listen mit den Entsprechenden Attributen zu erstellen
     ArrayList<String> name;
     private ArrayList<Float> betrag;
-    private ArrayList<Calendar> datum;
+    private ArrayList<LocalDate> datum;
     private ArrayList<Einnahmekategorie> einnahmekategorie;
     private ArrayList<Boolean> wiederkehrend;
 
 
     //Konstruktor
-    public MyAdapter(Context ct, ArrayList<String> name, ArrayList<Float> betrag, ArrayList<Calendar> datum, ArrayList<Einnahmekategorie> einnahmekategorie, ArrayList<Boolean> wiederkehrend) {
+    public MyAdapter(Context ct, ArrayList<String> name, ArrayList<Float> betrag, ArrayList<LocalDate> datum, ArrayList<Einnahmekategorie> einnahmekategorie, ArrayList<Boolean> wiederkehrend) {
         context = ct;
         this.name = name;
         this.betrag = betrag;
@@ -59,7 +61,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.titelTW.setText(name.get(position));
         holder.betragTW.setText(String.valueOf(betrag.get(position)));
-        holder.datumTW.setText( datum.get(position).getTime().toString());
+        holder.datumTW.setText( datum.get(position).format(DateTimeFormatter.ofPattern("dd.MM.yyyy")));
         holder.kategorieTW.setText(einnahmekategorie.get(position).getName());
     }
 

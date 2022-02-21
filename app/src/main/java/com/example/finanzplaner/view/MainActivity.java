@@ -9,7 +9,9 @@ import android.os.Bundle;
 import com.example.finanzplaner.R;
 import com.example.finanzplaner.db.DB;
 
+import com.example.finanzplaner.model.finanzverwaltung.AusgabeManager;
 import com.example.finanzplaner.model.finanzverwaltung.AusgabekategorieManager;
+import com.example.finanzplaner.model.finanzverwaltung.EinnahmeManager;
 import com.example.finanzplaner.model.finanzverwaltung.EinnahmekategorieManager;
 import com.example.finanzplaner.model.finanzverwaltung.Verwaltung;
 
@@ -34,23 +36,14 @@ public class MainActivity extends AppCompatActivity {
         ViewManager viewManager = new ViewManager();
         EinnahmekategorieManager einnahmekategorieManager = new EinnahmekategorieManager();
         AusgabekategorieManager ausgabekategorieManager = new AusgabekategorieManager();
+        AusgabeManager ausgabeManager = new AusgabeManager();
+        EinnahmeManager einnahmeManager = new EinnahmeManager();
 
 
         //DB Setup
         DB.db = Room.databaseBuilder(getApplicationContext(), DB.class, "FinanzplanerDatabase").allowMainThreadQueries().build();
         DB.db.daoSetup();
-        DB.einnahmekategorie.insertEinnahmekategorie(new Einnahmekategorie("BRiefe"));
-        //DB-Insert-Tests
-        DB.einnahme.insertEinnahme(new Einnahme("Kaffee",5,false,new Einnahmekategorie("Trinken")));
-        DB.einnahme.insertEinnahme(new Einnahme("Wasser",23,false,new Einnahmekategorie("Essen")));
-        DB.einnahme.insertEinnahme(new Einnahme("Kaffee",45,false,new Einnahmekategorie("Essen")));
-        DB.einnahme.insertEinnahme(new Einnahme("Milch",1,false,new Einnahmekategorie("Essen")));
-        DB.einnahme.insertEinnahme(new Einnahme("Kaffee",5532,false,new Einnahmekategorie("Trinken")));
-        DB.einnahme.insertEinnahme(new Einnahme("Saft",12,false,new Einnahmekategorie("Essen")));
-        DB.einnahme.insertEinnahme(new Einnahme("Kuchen",5,false,new Einnahmekategorie("Essen")));
-        DB.einnahme.insertEinnahme(new Einnahme("Kaffee",5,false,new Einnahmekategorie("Essen")));
-        DB.einnahme.insertEinnahme(new Einnahme("Äpfel",5,false,new Einnahmekategorie("Essen")));
-        DB.einnahme.insertEinnahme(new Einnahme("Kaffee",5,false,new Einnahmekategorie("Essen")));
+
 
         startActivity(new Intent(MainActivity.this,Dashboard.class).putExtra("Verwaltung", verwaltung));
 
