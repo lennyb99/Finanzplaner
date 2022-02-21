@@ -21,7 +21,6 @@ public class DiagrammDetail extends AppCompatActivity {
     Verwaltung verwaltung;
     List<Einnahme> einnahmen;
     MyAdapter adapter;
-
     ArrayList<String> name;
     ArrayList<Float> betrag;
     ArrayList<Calendar> datum;
@@ -31,16 +30,11 @@ public class DiagrammDetail extends AppCompatActivity {
 
 
 
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diagrammdetail);
         verwaltung = (Verwaltung) getIntent().getSerializableExtra("Verwaltung");
-        //einnahmen = verwaltung.getEinnahmen();
         einnahmen = new ArrayList<>();
         name = new ArrayList<>();
         betrag = new ArrayList<>();
@@ -52,13 +46,22 @@ public class DiagrammDetail extends AppCompatActivity {
         einnahmen.add(new Einnahme("Birne",1,false,new Einnahmekategorie("Essen")));
         einnahmen.add(new Einnahme("Kirschen",1,false,new Einnahmekategorie("Essen")));
         einnahmen.add(new Einnahme("Kuchen",1,false,new Einnahmekategorie("Essen")));
+        einnahmen.add(new Einnahme("Kuchen",1,false,new Einnahmekategorie("Essen")));
+        einnahmen.add(new Einnahme("Kuchen",1,false,new Einnahmekategorie("Essen")));
+        einnahmen.add(new Einnahme("Kuchen",1,false,new Einnahmekategorie("Essen")));
+        einnahmen.add(new Einnahme("Kuchen",1,false,new Einnahmekategorie("Essen")));
+        einnahmen.add(new Einnahme("Kuchen",1,false,new Einnahmekategorie("Essen")));
+        einnahmen.add(new Einnahme("Kuchen",1,false,new Einnahmekategorie("Essen")));
+        einnahmen.add(new Einnahme("Kuchen",1,false,new Einnahmekategorie("Essen")));
+        einnahmen.add(new Einnahme("Kuchen",1,false,new Einnahmekategorie("Essen")));
+        einnahmen.add(new Einnahme("Kuchen",1,false,new Einnahmekategorie("Essen")));
+        einnahmen.add(new Einnahme("Kuchen",1,false,new Einnahmekategorie("Essen")));
+        einnahmen.add(new Einnahme("Kuchen",1,false,new Einnahmekategorie("Essen")));
         erstelleListen();
-        adapter = new MyAdapter(name,betrag,datum,kategorie,wiederkehrend);
+
+        adapter = new MyAdapter(this, name,betrag,datum,kategorie,wiederkehrend);
         recyclerView = findViewById(R.id.recyclerview);
-        if (recyclerView == null){
-            Log.v("Adapter","Adapter");
-            return;
-        }
+        recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 

@@ -11,32 +11,39 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.finanzplaner.R;
-import com.example.finanzplaner.model.finanzverwaltung.Ausgabe;
-import com.example.finanzplaner.model.finanzverwaltung.Einnahme;
 import com.example.finanzplaner.model.finanzverwaltung.Einnahmekategorie;
-import com.example.finanzplaner.model.finanzverwaltung.Verwaltung;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
 
-public class MyAdapter extends RecyclerView. Adapter<MyAdapter.ViewHolder> {
+public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
 
     Context context;
+    //Arrays um aus der Liste von Ojekten mehrere Listen mit den Entsprechenden Attributen zu erstellen
     ArrayList<String> name;
     private ArrayList<Float> betrag;
     private ArrayList<Calendar> datum;
     private ArrayList<Einnahmekategorie> einnahmekategorie;
     private ArrayList<Boolean> wiederkehrend;
-    public MyAdapter(ArrayList<String> name, ArrayList<Float> betrag, ArrayList<Calendar> datum, ArrayList<Einnahmekategorie> einnahmekategorie, ArrayList<Boolean> wiederkehrend) {
+
+
+    //Konstruktor
+    public MyAdapter(Context ct, ArrayList<String> name, ArrayList<Float> betrag, ArrayList<Calendar> datum, ArrayList<Einnahmekategorie> einnahmekategorie, ArrayList<Boolean> wiederkehrend) {
+        context = ct;
         this.name = name;
         this.betrag = betrag;
         this.datum = datum;
         this.einnahmekategorie = einnahmekategorie;
         this.wiederkehrend = wiederkehrend;
+    }
+
+    @NonNull
+    @Override
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        LayoutInflater inflater = LayoutInflater.from(context);
+        View view = inflater.inflate(R.layout.diagrammdetail_row, parent, false);
+        return new ViewHolder(view);
     }
 
     @Override
@@ -45,41 +52,21 @@ public class MyAdapter extends RecyclerView. Adapter<MyAdapter.ViewHolder> {
         context = recyclerView.getContext();
     }
 
-
-
-    @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.activity_diagrammdetail, parent, false);
-        return new ViewHolder(view);
-    }
-
+    public int getItemCount() { return name.size(); }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
         holder.titelTW.setText(name.get(position));
-
         holder.betragTW.setText(String.valueOf(betrag.get(position)));
         holder.datumTW.setText( datum.get(position).getTime().toString());
         holder.kategorieTW.setText(einnahmekategorie.get(position).getName());
-        //holder.setText(einnahmekategorie[position]);
-
-    }
-
-    @Override
-    public int getItemCount() {
-
-       return name.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView titelTW, kategorieTW, datumTW, betragTW;
         ImageView thumbnailTW;
-
-
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             titelTW = itemView.findViewById(R.id.RvTitel);
