@@ -1,7 +1,5 @@
 package com.example.finanzplaner.model.finanzverwaltung;
 
-import android.annotation.SuppressLint;
-
 import androidx.annotation.NonNull;
 import androidx.room.PrimaryKey;
 
@@ -22,6 +20,17 @@ public abstract class Eintrag {
         this.betrag = betrag;
         datum = LocalDate.now();
         this.wiederkehrend = wiederkehrend;
+    }
+
+    @Override
+    public String toString() {
+        return "Eintrag{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", betrag=" + betrag +
+                ", datum=" + datum +
+                ", wiederkehrend=" + wiederkehrend +
+                '}';
     }
 
     public String getFormattedDatum() {
