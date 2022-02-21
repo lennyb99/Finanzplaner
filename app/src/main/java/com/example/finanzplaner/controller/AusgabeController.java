@@ -26,16 +26,13 @@ public class AusgabeController implements Controller{
     private EditText datum;
     private Spinner kategorieSpinner;
 
-    List<Ausgabekategorie> ausgabekategorieItems;
-
     private float betragWert;
     private String datumWert;
     private String nameWert;
     private String kategorieWert;
 
-    public AusgabeController(AusgabeView aV, List<Ausgabekategorie> ausgabekategorien, Verwaltung verwaltung){
+    public AusgabeController(AusgabeView aV, Verwaltung verwaltung){
         ausgabeView = aV;
-        ausgabekategorieItems = ausgabekategorien;
         this.verwaltung= verwaltung;
 
         bestaetigung = ausgabeView.getBestaetigung();
@@ -44,7 +41,6 @@ public class AusgabeController implements Controller{
         betrag = (EditText) ausgabeView.getBetrag();
         datum = (EditText) ausgabeView.getDatum();
         kategorieSpinner = (Spinner) ausgabeView.getKategorienSpinner();
-
 
         bestaetigung.setOnClickListener(new View.OnClickListener() {
             @Override

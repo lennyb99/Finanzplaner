@@ -13,151 +13,116 @@ import java.util.List;
 
 public class Verwaltung implements IObservable, Serializable {
 
-    private List<Ausgabe> ausgaben;
-    private List<Einnahme> einnahmen;
-    private List<Ausgabekategorie> ausgabekategorien;
-    private List<Einnahmekategorie> einnahmekategorien;
-
-    private List<IObserver> views;
 
 
     public Verwaltung(){
 
-        ausgaben = new ArrayList<>();
-        einnahmen = new ArrayList<>();
-        views = new ArrayList<>();
-        ausgabekategorien = new ArrayList<>();
-        einnahmekategorien = new ArrayList<>();
-
-    }
-
-    public void addAusgabekategorie(Ausgabekategorie kat){
-        for (Ausgabekategorie ak: ausgabekategorien) {
-            if(ak.getName().equals(kat.getName())){
-                return;
-            }
-        }
-        ausgabekategorien.add(kat);
-        DB.ausgabekategorie.insertAusgabekateogrie(kat);
-    }
-
-    public void addEinnahmekategorie(Einnahmekategorie kat){
-        for (Einnahmekategorie ek: einnahmekategorien) {
-            if(ek.getName().equals(kat.getName())){
-                return;
-            }
-        }
-        einnahmekategorien.add(kat);
-        DB.einnahmekategorie.insertEinnahmekategorie(kat);
-    }
-
-    public void addAusgabe(Ausgabe ausgabe){
-        ausgaben.add(ausgabe);
-        Log.v("mydebug",ausgabe.getName()+ausgabe.getBetrag()+ausgabe.isWiederkehrend()+ausgabe.getAusgabekategorie().toString());
-        DB.ausgabe.insertAusgabe(ausgabe);
-    }
-
-    public void addEinnahme(Einnahme einnahme){
-        einnahmen.add(einnahme);
-
-        Log.v("mydebug",einnahme.getName()+einnahme.getBetrag()+einnahme.isWiederkehrend()+einnahme.getEinnahmekategorie().toString());
-
-        Log.v("mydebug",einnahme.getName()+einnahme.getBetrag()+einnahme.isWiederkehrend()+einnahme.getEinnahmekategorie().toString());
-
-        DB.einnahme.insertEinnahme(einnahme);
-    }
-
-    public void delAusgabe(String name){
-
-    }
-
-    public void delEinnahme(String name){
-
-    }
-
-    public void delAusgabekategorie(String name){
-
-    }
-
-    public void delEinnahmekategorie(String name){
-
-    }
-
-    public void getEinnahmenFromDB() {
-        einnahmen = DB.einnahme.getAllEinnahmen();
     }
 
     @Override
     public void anmelden(IObserver view) {
-        views.add(view);
+        ViewManager.anmelden(view);
     }
 
     @Override
     public void abmelden(IObserver view) {
-        views.remove(view);
+        ViewManager.abmelden(view);
     }
 
     @Override
     public void benachrichtigeBeobachter() {
-        for (IObserver view: views) {
-            view.update();
-        }
+        ViewManager.benachrichtigeBeobachter();
     }
 
-    @Override
-    public void gibAktuelleDaten() {
-
+    public void addAusgabe(Ausgabe ausgabe){
+        AusgabeManager.addAusgabe(ausgabe);
+        benachrichtigeBeobachter();
     }
 
+    public void delAusgabe(String name){
+        AusgabeManager.delAusgabe(name);
+        benachrichtigeBeobachter();
+    }
 
     public List<Ausgabe> getAusgaben(){
-        return ausgaben;
+        return AusgabeManager.getAusgaben();
+    }
+
+    public void setAusgaben(List<Ausgabe> ausgaben){
+        AusgabeManager.setAusgaben(ausgaben);
+        benachrichtigeBeobachter();
+    }
+
+    public void addEinnahme(Einnahme einnahme){
+        EinnahmeManager.addEinnahme(einnahme);
+        benachrichtigeBeobachter();
+    }
+
+    public void delEinnahme(String name){
+        benachrichtigeBeobachter();
     }
 
     public List<Einnahme> getEinnahmen(){
-        return einnahmen;
+        return EinnahmeManager.getEinnahmen();
+    }
+
+    public void setEinnahmen(List<Einnahme> einnahmen) {
+        EinnahmeManager.setEinnahmen(einnahmen);
+        benachrichtigeBeobachter();
+    }
+
+    public void getEinnahmenFromDB() {
+        EinnahmeManager.getEinnahmenFromDB();
+    }
+
+
+
+    public void addAusgabekategorie(Ausgabekategorie kat){
+        AusgabekategorieManager.addAusgabekategorie(kat);
+        benachrichtigeBeobachter();
+    }
+
+    public void delAusgabekategorie(String name){
+        AusgabekategorieManager.delAusgabekategorie(name);
+        benachrichtigeBeobachter();
     }
 
     public List<String> getAusgabekategorieItemsString(){
-        List<String> temp = new ArrayList<>();
-        for (Ausgabekategorie kategorie: ausgabekategorien) {
-            temp.add(kategorie.toString());
-        }
-        return temp;
+        return AusgabekategorieManager.getAusgabekategorieItemsString();
     }
 
     public List<Ausgabekategorie> getAusgabekategorieItems(){
-        return ausgabekategorien;
+        return AusgabekategorieManager.getAusgabekategorieList();
     }
 
     public Ausgabekategorie findAusgabekategorie(String name){
-        for (Ausgabekategorie ak: ausgabekategorien) {
-            if(ak.getName().equals(name)){
-                return ak;
-            }
-        }
-        return null;
+        return AusgabekategorieManager.findAusgabekategorie(name);
+    }
+
+    public void addEinnahmekategorie(Einnahmekategorie kat){
+        EinnahmekategorieManager.addEinnahmekategorie(kat);
+        benachrichtigeBeobachter();
+    }
+
+    public void delEinnahmekategorie(String name){
+        EinnahmekategorieManager.delEinnahmekategorie(name);
+        benachrichtigeBeobachter();
     }
 
     public List<String> getEinnahmekategorieItemsString(){
-        List<String> temp = new ArrayList<>();
-        for (Einnahmekategorie kategorie: einnahmekategorien) {
-            temp.add(kategorie.toString());
-        }
-        return temp;
+        return EinnahmekategorieManager.getEinnahmekategorieItemsString();
     }
 
     public List<Einnahmekategorie> getEinnahmekategorieItems(){
-        return einnahmekategorien;
+        return EinnahmekategorieManager.getEinnahmekategorieList();
     }
 
     public Einnahmekategorie findEinnahmekategorie(String name){
-        for (Einnahmekategorie ek: einnahmekategorien) {
-            if(ek.getName().equals(name)){
-                return ek;
-            }
-        }
-        return null;
+        return EinnahmekategorieManager.findEinnahmekategorie(name);
     }
+
+
+
+
 
 }

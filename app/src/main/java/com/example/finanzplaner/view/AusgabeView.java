@@ -39,6 +39,7 @@ public class AusgabeView extends AppCompatActivity implements IObserver{
         setContentView(R.layout.activity_ausgabe);
 
         verwaltung = (Verwaltung) getIntent().getSerializableExtra("Verwaltung");
+        verwaltung.anmelden(this);
 
         kategorieItemsString = verwaltung.getAusgabekategorieItemsString();
         kategorieItems = verwaltung.getAusgabekategorieItems();
@@ -53,7 +54,7 @@ public class AusgabeView extends AppCompatActivity implements IObserver{
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, kategorieItemsString);
         kategorienSpinner.setAdapter(adapter);
 
-        ausgabeController = new AusgabeController(this, kategorieItems, verwaltung);
+        ausgabeController = new AusgabeController(this, verwaltung);
     }
 
     public Spinner getKategorienSpinner() {
@@ -87,6 +88,8 @@ public class AusgabeView extends AppCompatActivity implements IObserver{
 
     @Override
     public void update() {
-
+        kategorieItemsString = verwaltung.getAusgabekategorieItemsString();
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, kategorieItemsString);
+        kategorienSpinner.setAdapter(adapter);
     }
 }

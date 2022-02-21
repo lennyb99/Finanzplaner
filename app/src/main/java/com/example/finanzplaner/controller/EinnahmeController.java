@@ -18,8 +18,6 @@ public class EinnahmeController {
     private EinnahmeView einnahmeView;
     private Verwaltung verwaltung;
 
-    private List<Einnahmekategorie> einnahmekategorieItems;
-
     private Button bestaetigung;
     private Button kategorieView;
     private EditText name;
@@ -32,10 +30,8 @@ public class EinnahmeController {
     private String nameWert;
     private String kategorieWert;
 
-
-    public EinnahmeController(EinnahmeView einnahmeView, List<Einnahmekategorie> einnahmekategorien, Verwaltung verwaltung){
+    public EinnahmeController(EinnahmeView einnahmeView, Verwaltung verwaltung){
         this.einnahmeView = einnahmeView;
-        this.einnahmekategorieItems = einnahmekategorien;
         this.verwaltung = verwaltung;
 
         bestaetigung = einnahmeView.getBestaetigung();
@@ -74,10 +70,8 @@ public class EinnahmeController {
 
             }
         });
-
-
-
     }
+
 
 
 }
