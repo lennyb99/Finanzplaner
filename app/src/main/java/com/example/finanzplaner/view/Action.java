@@ -9,6 +9,7 @@ import android.widget.Button;
 import com.example.finanzplaner.R;
 import com.example.finanzplaner.controller.ActionController;
 import com.example.finanzplaner.model.finanzverwaltung.Verwaltung;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class Action extends AppCompatActivity {
 
@@ -16,8 +17,8 @@ public class Action extends AppCompatActivity {
 
     ActionController actionController;
 
-    Button ausgabeButton;
-    Button einnahmeButton;
+    FloatingActionButton ausgabeButton;
+    FloatingActionButton einnahmeButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,8 +27,8 @@ public class Action extends AppCompatActivity {
 
         verwaltung = (Verwaltung) getIntent().getSerializableExtra("Verwaltung");
 
-        ausgabeButton = (Button) findViewById(R.id.ausgabe);
-        einnahmeButton = (Button) findViewById(R.id.einnahme);
+        ausgabeButton = (FloatingActionButton) findViewById(R.id.ausgabe);
+        einnahmeButton = (FloatingActionButton) findViewById(R.id.einnahme);
 
         actionController = new ActionController(this);
 
@@ -38,11 +39,11 @@ public class Action extends AppCompatActivity {
         startActivity(new Intent(Action.this, dest).putExtra("Verwaltung", verwaltung));
     }
 
-    public Button getAusgabeButton(){
+    public FloatingActionButton getAusgabeButton(){
         return ausgabeButton;
     }
 
-    public Button getEinnahmeButton(){
+    public FloatingActionButton getEinnahmeButton(){
         return einnahmeButton;
     }
 

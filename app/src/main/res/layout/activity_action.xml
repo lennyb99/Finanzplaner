@@ -28,8 +28,6 @@
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_margin="12dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="15dp"
             android:elevation="6dp"
             app:cardCornerRadius="16dp">
 
@@ -40,7 +38,6 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:clickable="true"
-                android:padding="15dp"
                 app:srcCompat="@drawable/minus_solid"
                 tools:layout_editor_absoluteX="59dp"
                 tools:layout_editor_absoluteY="325dp" />
