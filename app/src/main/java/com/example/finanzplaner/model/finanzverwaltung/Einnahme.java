@@ -2,7 +2,7 @@ package com.example.finanzplaner.model.finanzverwaltung;
 
 import androidx.room.Entity;
 
-@Entity (tableName = "income_table")
+@Entity(tableName = "income_table")
 public class Einnahme extends Eintrag {
 
     private Einnahmekategorie einnahmekategorie;

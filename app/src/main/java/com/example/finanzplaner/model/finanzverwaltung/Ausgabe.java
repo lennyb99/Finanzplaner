@@ -2,7 +2,7 @@ package com.example.finanzplaner.model.finanzverwaltung;
 
 import androidx.room.Entity;
 
-@Entity (tableName = "expense_table")
+@Entity(tableName = "expense_table")
 public class Ausgabe extends Eintrag {
 
     private Ausgabekategorie ausgabekategorie;
