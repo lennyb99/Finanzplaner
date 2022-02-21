@@ -75,6 +75,11 @@ public class DiagrammDetail extends AppCompatActivity implements IObserver{
     }
 
     private void erstelleListen() {
+            name.clear();
+            betrag.clear();
+            datum.clear();
+            kategorie.clear();
+            wiederkehrend.clear();
 
         for (int i = 0; i < einnahmen.size(); i++) {
             name.add(einnahmen.get(i).getName());
