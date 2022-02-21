@@ -13,11 +13,11 @@ public class Einnahme extends Eintrag {
     }
 
     //Getter und Setter
-    public Einnahmekategorie getEk() {
+    public Einnahmekategorie getEinnahmekategorie() {
         return einnahmekategorie;
     }
 
-    public void setEk(Einnahmekategorie einnahmekategorie) {
+    public void setEinnahmekategorie(Einnahmekategorie einnahmekategorie) {
         this.einnahmekategorie = einnahmekategorie;
     }
 

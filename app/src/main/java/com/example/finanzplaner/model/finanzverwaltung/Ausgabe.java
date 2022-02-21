@@ -13,11 +13,11 @@ public class Ausgabe extends Eintrag {
     }
 
     //Getter und Setter
-    public Ausgabekategorie getAk() {
+    public Ausgabekategorie getAusgabekategorie() {
         return ausgabekategorie;
     }
 
-    public void setAk(Ausgabekategorie ausgabekategorie) {
+    public void setAusgabekategorie(Ausgabekategorie ausgabekategorie) {
         this.ausgabekategorie = ausgabekategorie;
     }
 

@@ -9,7 +9,8 @@ import com.example.finanzplaner.model.finanzverwaltung.Ausgabe;
 import com.example.finanzplaner.model.finanzverwaltung.Ausgabekategorie;
 import com.example.finanzplaner.model.finanzverwaltung.Verwaltung;
 import com.example.finanzplaner.view.AusgabeView;
-import com.example.finanzplaner.view.Kategorie;
+import com.example.finanzplaner.view.Dashboard;
+import com.example.finanzplaner.view.KategorieView;
 
 import java.util.List;
 
@@ -53,7 +54,7 @@ public class AusgabeController implements Controller{
                 datumWert = datum.getText().toString();
                 kategorieWert = kategorieSpinner.getSelectedItem().toString();
 
-                verwaltung.addAusgabe(new Ausgabe(nameWert, betragWert, verwaltung.findAusgabekategorie(kategorieWert), false));
+                verwaltung.addAusgabe(new Ausgabe(nameWert, betragWert, false,verwaltung.findAusgabekategorie(kategorieWert)));
 
 
 
@@ -65,7 +66,7 @@ public class AusgabeController implements Controller{
         kategorieView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ausgabeView.startNewActivity(Kategorie.class);
+                ausgabeView.startNewActivity(KategorieView.class);
             }
         });
 
