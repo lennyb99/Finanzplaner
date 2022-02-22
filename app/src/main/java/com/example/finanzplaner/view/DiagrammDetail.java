@@ -22,6 +22,7 @@ import com.github.mikephil.charting.utils.ColorTemplate;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class DiagrammDetail extends AppCompatActivity implements IObserver{
     RecyclerView recyclerView;
@@ -42,6 +43,7 @@ public class DiagrammDetail extends AppCompatActivity implements IObserver{
     PieChart pieChart;
     PieData pieData;
     List<PieEntry> pieEntryList = new ArrayList<>();
+    Map<Ausgabekategorie,Float> ausgabeGewichtungen;
 
 
 
@@ -55,6 +57,9 @@ public class DiagrammDetail extends AppCompatActivity implements IObserver{
 
         verwaltung = (Verwaltung) getIntent().getSerializableExtra("Verwaltung");
         verwaltung.anmelden(this);
+
+        ausgabeGewichtungen = verwaltung.getKategoriegewichtungen();
+
 
         eintrag = (verwaltung.getEintraege());
         ausgaben = (verwaltung.getAusgaben());
@@ -81,8 +86,8 @@ public class DiagrammDetail extends AppCompatActivity implements IObserver{
         pieChart = findViewById(R.id.pieChart2);
         pieChart.setUsePercentValues(true);
 
-       // erstellePieChartE();
-        //erstellePieChartA();
+        erstellePieChartE();
+
 
         PieDataSet pieDataSet = new PieDataSet(pieEntryList,"Ausgabe");
         pieDataSet.setColors(ColorTemplate.PASTEL_COLORS);
@@ -138,25 +143,20 @@ public class DiagrammDetail extends AppCompatActivity implements IObserver{
         }
         for (int i = 0; i < eintrag.size(); i++) {
             wiederkehrendE.add(eintrag.get(i).isWiederkehrend());
+
         }
     }
 
     private void erstellePieChartE(){
 
-        for (int i = 0; i < eintrag.size(); i++) {
-            pieEntryList.add(new PieEntry( betragE.get(i),nameE.get(i)));
+        for (Ausgabekategorie ak :ausgabeGewichtungen.keySet()) {
+            pieEntryList.add(new PieEntry(ausgabeGewichtungen.get(ak),ak.getName()));
+
 
         }
 
     }
-    private void erstellePieChartA(){
 
-        for (int i = 0; i < ausgaben.size(); i++) {
-            pieEntryList.add(new PieEntry( betragA.get(i),nameA.get(i)));
-
-        }
-
-    }
 
 
     @Override
