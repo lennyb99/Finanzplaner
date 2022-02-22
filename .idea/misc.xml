@@ -15,10 +15,11 @@
         <entry key="..\:/Users/Jonny/AndroidStudioProjects/Finanzplaner/app/src/main/res/layout/activity_main.xml" value="0.28804347826086957" />
         <entry key="..\:/Users/Pawel/Documents/---SAVE---/HAW/4. Semester/Software Engineering/Finanzplaner/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3828125" />
         <entry key="..\:/Users/Pawel/Documents/---SAVE---/HAW/4. Semester/Software Engineering/Finanzplaner/app/src/main/res/layout/activity_action.xml" value="0.21458333333333332" />
+        <entry key="app/src/main/res/font/roboto.xml" value="0.2462962962962963" />
         <entry key="app/src/main/res/layout/activity_action.xml" value="0.30668640136718744" />
         <entry key="app/src/main/res/layout/activity_alle_ausgaben.xml" value="0.14402173913043478" />
         <entry key="app/src/main/res/layout/activity_ausgabe.xml" value="0.14402173913043478" />
-        <entry key="app/src/main/res/layout/activity_dashboard.xml" value="0.23451232910156272" />
+        <entry key="app/src/main/res/layout/activity_dashboard.xml" value="0.2627273559570313" />
         <entry key="app/src/main/res/layout/activity_diagrammdetail.xml" value="0.14402173913043478" />
         <entry key="app/src/main/res/layout/activity_einnahme.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_kategorie.xml" value="0.14402173913043478" />
@@ -26,7 +27,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
