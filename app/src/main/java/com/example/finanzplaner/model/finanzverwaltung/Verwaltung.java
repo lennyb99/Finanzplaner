@@ -46,8 +46,8 @@ public class Verwaltung implements IObservable, Serializable {
         benachrichtigeBeobachter();
     }
 
-    public void delAusgabe(String name){
-        AusgabeManager.delAusgabe(name);
+    public void delAusgabe(int id){
+        AusgabeManager.delAusgabe(id);
         benachrichtigeBeobachter();
     }
 
@@ -65,7 +65,8 @@ public class Verwaltung implements IObservable, Serializable {
         benachrichtigeBeobachter();
     }
 
-    public void delEinnahme(String name){
+    public void delEinnahme(int id){
+        EinnahmeManager.delEinnahme(id);
         benachrichtigeBeobachter();
     }
 

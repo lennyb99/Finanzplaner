@@ -52,9 +52,6 @@ public class DiagrammDetail extends AppCompatActivity implements IObserver{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diagrammdetail);
 
-
-
-
         verwaltung = (Verwaltung) getIntent().getSerializableExtra("Verwaltung");
         verwaltung.anmelden(this);
 

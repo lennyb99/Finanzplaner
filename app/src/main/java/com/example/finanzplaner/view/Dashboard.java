@@ -37,6 +37,7 @@ public class Dashboard extends AppCompatActivity implements IObserver{
     DashboardController dbController;
     FloatingActionButton eintraegeHinzufuegen;
     FloatingActionButton diagrammDetailButton;
+    FloatingActionButton eintraegeLoeschenButton;
     ArrayList<String> name;
     ArrayList<Float> betrag;
     ArrayList<LocalDate> datum;
@@ -65,6 +66,7 @@ public class Dashboard extends AppCompatActivity implements IObserver{
 
         eintraegeHinzufuegen = (FloatingActionButton) findViewById(R.id.hinzufuegen);
         diagrammDetailButton = (FloatingActionButton) findViewById(R.id.diagrammdetail_button);
+        eintraegeLoeschenButton = (FloatingActionButton) findViewById(R.id.loeschen);
         dbController = new DashboardController(this);
 
         pieChart = findViewById(R.id.pieChart);
@@ -106,7 +108,7 @@ public class Dashboard extends AppCompatActivity implements IObserver{
     }
 
     private void erstellePieChartE(){
-
+        pieEntryList.clear();
         for (String ak :ausgabeGewichtungen.keySet()) {
             pieEntryList.add(new PieEntry(ausgabeGewichtungen.get(ak),ak));
 
@@ -120,6 +122,7 @@ public class Dashboard extends AppCompatActivity implements IObserver{
         return eintraegeHinzufuegen;
     }
     public FloatingActionButton getDiagrammDetailButton(){return diagrammDetailButton; }
+    public FloatingActionButton getEintraegeLoeschenButton(){return eintraegeLoeschenButton;}
 
     public void startNewActivity(Class dest){
         startActivity(new Intent(Dashboard.this, dest).putExtra("Verwaltung", verwaltung));

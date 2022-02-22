@@ -21,8 +21,13 @@ public class EinnahmeManager {
         DB.einnahme.insertEinnahme(einnahme);
     }
 
-    public static void delEinnahme(String name){
-
+    public static void delEinnahme(int id){
+        for (int i = 0; i<einnahmen.size();i++) {
+            if(einnahmen.get(i).getId() == id){
+                einnahmen.remove(i);
+            }
+        }
+        DB.einnahme.deleteEinnahme(id);
     }
 
     public static List<Einnahme> getEinnahmen() {
