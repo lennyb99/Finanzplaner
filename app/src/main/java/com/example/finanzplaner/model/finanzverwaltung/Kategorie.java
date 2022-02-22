@@ -3,8 +3,6 @@ package com.example.finanzplaner.model.finanzverwaltung;
 import androidx.annotation.NonNull;
 import androidx.room.PrimaryKey;
 
-import java.io.Serializable;
-
 public abstract class Kategorie {
 
     @PrimaryKey @NonNull

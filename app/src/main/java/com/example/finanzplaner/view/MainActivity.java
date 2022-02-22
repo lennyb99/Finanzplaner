@@ -53,9 +53,22 @@ public class MainActivity extends AppCompatActivity {
         DB.db.initHighesIds();
 
         //DB TESTS
-        DB.einnahmekategorie.insertEinnahmekategorie(new Einnahmekategorie("Job"));
-        DB.einnahmekategorie.deleteEinnahmekategorie("Job");
+        DB.einnahmekategorie.insertEinnahmekategorie(new Einnahmekategorie("Einahmekategorie1"));
+        DB.einnahmekategorie.insertEinnahmekategorie(new Einnahmekategorie("Einahmekategorie2"));
+        DB.einnahmekategorie.insertEinnahmekategorie(new Einnahmekategorie("Einahmekategorie3"));
+        DB.einnahmekategorie.insertEinnahmekategorie(new Einnahmekategorie("Einahmekategorie4"));
+        DB.ausgabekategorie.insertAusgabekategorie(new Ausgabekategorie("Ausgabekategorie1"));
+        DB.ausgabekategorie.insertAusgabekategorie(new Ausgabekategorie("Ausgabekategorie2"));
+        DB.ausgabekategorie.insertAusgabekategorie(new Ausgabekategorie("Ausgabekategorie3"));
+        DB.ausgabekategorie.insertAusgabekategorie(new Ausgabekategorie("Ausgabekategorie4"));
 
+        DB.einnahme.insertEinnahme(new Einnahme("Job1", 235.2f, false, new Einnahmekategorie("Einahmekategorie1")));
+        DB.einnahme.insertEinnahme(new Einnahme("Job2", 235.2f, false, new Einnahmekategorie("Einahmekategorie2")));
+        DB.einnahme.insertEinnahme(new Einnahme("Job3", 235.2f, false, new Einnahmekategorie("Einahmekategorie3")));
+
+        DB.ausgabe.insertAusgabe(new Ausgabe("AKs1", 323.4f, false, new Ausgabekategorie("Ausgabekategorie1")));
+        DB.ausgabe.insertAusgabe(new Ausgabe("AKs2", 323.4f, false, new Ausgabekategorie("Ausgabekategorie2")));
+        DB.ausgabe.insertAusgabe(new Ausgabe("AKs3", 32.4f, false, new Ausgabekategorie("Ausgabekategorie3")));
 
         startActivity(new Intent(MainActivity.this,Dashboard.class).putExtra("Verwaltung", verwaltung));
 

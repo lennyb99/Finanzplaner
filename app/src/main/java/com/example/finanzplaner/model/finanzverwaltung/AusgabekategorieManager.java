@@ -23,7 +23,7 @@ public class AusgabekategorieManager {
         }
         Log.v("mydebug", "neue Ausgabekategorie wird gespeichert.");
         ausgabekategorieList.add(kat);
-        DB.ausgabekategorie.insertAusgabekateogrie(kat);
+        DB.ausgabekategorie.insertAusgabekategorie(kat);
     }
 
     public static void delAusgabekategorie(String name){
