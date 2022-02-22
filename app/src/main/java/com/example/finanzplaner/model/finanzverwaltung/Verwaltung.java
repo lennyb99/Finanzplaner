@@ -78,8 +78,8 @@ public class Verwaltung implements IObservable, Serializable {
         benachrichtigeBeobachter();
     }
 
-    public void getEinnahmenFromDB() {
-        EinnahmeManager.getEinnahmenFromDB();
+    public void getEinnahmenFromDB(List<Einnahme> einnahmen) {
+        EinnahmeManager.receiveEinnahmenFromDB(einnahmen);
     }
 
 
@@ -128,17 +128,17 @@ public class Verwaltung implements IObservable, Serializable {
         return EinnahmekategorieManager.findEinnahmekategorie(name);
     }
 
-    public Map<Ausgabekategorie,Float> getKategoriegewichtungen(){
-        Map<Ausgabekategorie,Float> gewichtungen = new HashMap<Ausgabekategorie, Float>();
+    public Map<String,Float> getKategoriegewichtungen(){
+        Map<String,Float> gewichtungen = new HashMap<String, Float>();
         for (Ausgabekategorie ausgabekategorie: AusgabekategorieManager.getAusgabekategorieList()) {
-            gewichtungen.put(ausgabekategorie,0f);
+            gewichtungen.put(ausgabekategorie.getName(),0f);
         }
-
         for (Ausgabe ausgabe: AusgabeManager.getAusgaben() ) {
-            gewichtungen.put(ausgabe.getAusgabekategorie(), gewichtungen.get(ausgabe.getAusgabekategorie()) + ausgabe.getBetrag());
+            gewichtungen.put(ausgabe.getAusgabekategorie().getName(), gewichtungen.get(ausgabe.getAusgabekategorie().getName()) + ausgabe.getBetrag());
         }
         return gewichtungen;
     }
+
     public List<Eintrag> getEintraege(){
         List<Eintrag> list = new ArrayList<>();
         for (Einnahme einnahme: EinnahmeManager.getEinnahmen() ) {

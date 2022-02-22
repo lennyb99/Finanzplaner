@@ -19,6 +19,7 @@ public class Action extends AppCompatActivity {
 
     FloatingActionButton ausgabeButton;
     FloatingActionButton einnahmeButton;
+    FloatingActionButton zurueckButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,7 @@ public class Action extends AppCompatActivity {
 
         ausgabeButton = (FloatingActionButton) findViewById(R.id.ausgabe);
         einnahmeButton = (FloatingActionButton) findViewById(R.id.einnahme);
+        zurueckButton = (FloatingActionButton) findViewById(R.id.abbruch);
 
         actionController = new ActionController(this);
 
@@ -41,6 +43,10 @@ public class Action extends AppCompatActivity {
 
     public FloatingActionButton getAusgabeButton(){
         return ausgabeButton;
+    }
+
+    public FloatingActionButton getZurueckButton() {
+        return zurueckButton;
     }
 
     public FloatingActionButton getEinnahmeButton(){

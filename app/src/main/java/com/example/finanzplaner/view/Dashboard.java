@@ -42,7 +42,7 @@ public class Dashboard extends AppCompatActivity implements IObserver{
     ArrayList<LocalDate> datum;
     ArrayList<Einnahmekategorie> kategorie;
     ArrayList<Boolean> wiederkehrend;
-    Map<Ausgabekategorie,Float> ausgabeGewichtungen;
+    Map<String,Float> ausgabeGewichtungen;
 
 
     @Override
@@ -107,8 +107,8 @@ public class Dashboard extends AppCompatActivity implements IObserver{
 
     private void erstellePieChartE(){
 
-        for (Ausgabekategorie ak :ausgabeGewichtungen.keySet()) {
-            pieEntryList.add(new PieEntry(ausgabeGewichtungen.get(ak),ak.getName()));
+        for (String ak :ausgabeGewichtungen.keySet()) {
+            pieEntryList.add(new PieEntry(ausgabeGewichtungen.get(ak),ak));
 
 
         }

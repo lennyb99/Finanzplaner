@@ -33,7 +33,9 @@ public class EinnahmeManager {
         EinnahmeManager.einnahmen = einnahmen;
     }
 
-    public static void getEinnahmenFromDB() {
-        einnahmen = DB.einnahme.getAllEinnahmen();
+    public static void receiveEinnahmenFromDB(List<Einnahme> einnahmenDB) {
+        for (Einnahme einnahme: einnahmenDB) {
+            einnahmen.add(einnahme);
+        }
     }
 }
