@@ -11,6 +11,7 @@ import com.example.finanzplaner.model.finanzverwaltung.Einnahme;
 import com.example.finanzplaner.model.finanzverwaltung.Einnahmekategorie;
 import com.example.finanzplaner.model.finanzverwaltung.Verwaltung;
 import com.example.finanzplaner.view.EinnahmeView;
+import com.example.finanzplaner.view.EintraegeLoeschen;
 import com.example.finanzplaner.view.KategorieView;
 
 import java.util.List;
@@ -35,6 +36,7 @@ public class EinnahmeController implements Controller{
     private String nameWert;
     private String kategorieWert;
 
+    public EinnahmeController(){}
     public EinnahmeController(EinnahmeView einnahmeView, Verwaltung verwaltung){
         this.einnahmeView = einnahmeView;
         this.verwaltung = verwaltung;
@@ -94,7 +96,7 @@ public class EinnahmeController implements Controller{
         });
     }
 
-    private boolean ueberpruefeDatumEingabe(String datum){
+    public boolean ueberpruefeDatumEingabe(String datum){
         String regex = "^[0-9]{4}-(1[0-2]|0[1-9])-(3[01]|[12][0-9]|0[1-9])$";
 
         Pattern pattern = Pattern.compile(regex);
