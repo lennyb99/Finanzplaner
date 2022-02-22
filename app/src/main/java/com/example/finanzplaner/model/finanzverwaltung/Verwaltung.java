@@ -18,6 +18,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import static com.example.finanzplaner.db.DB.einnahme;
+
 public class Verwaltung implements IObservable, Serializable {
 
 
@@ -149,6 +151,18 @@ public class Verwaltung implements IObservable, Serializable {
             list.add(ausgabe);
         }
         return list;
+    }
+
+    public float getBilanz(){
+        float bilanz = 0;
+        for (Einnahme einnahme: EinnahmeManager.getEinnahmen()) {
+            bilanz += einnahme.getBetrag();
+        }
+
+        for (Ausgabe ausgabe:AusgabeManager.getAusgaben()) {
+            bilanz -= ausgabe.getBetrag();
+        }
+        return bilanz;
     }
 
 
