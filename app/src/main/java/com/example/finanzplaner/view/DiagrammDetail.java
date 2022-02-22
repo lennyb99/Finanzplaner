@@ -43,9 +43,6 @@ public class DiagrammDetail extends AppCompatActivity implements IObserver{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diagrammdetail);
 
-
-
-
         verwaltung = (Verwaltung) getIntent().getSerializableExtra("Verwaltung");
         verwaltung.anmelden(this);
 
@@ -96,18 +93,13 @@ public class DiagrammDetail extends AppCompatActivity implements IObserver{
         for (int i = 0; i < einnahmen.size(); i++) {
             wiederkehrend.add(einnahmen.get(i).isWiederkehrend());
         }
-
     }
 
     private void erstellePieChart(){
-
         for (int i = 0; i < einnahmen.size(); i++) {
             pieEntryList.add(new PieEntry(betrag.get(i),name.get(i)));
-
         }
-
     }
-
 
     @Override
     public void update() {
