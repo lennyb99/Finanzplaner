@@ -99,7 +99,9 @@ public class Dashboard extends AppCompatActivity implements IObserver{
     }
 
     private void erstellePieChart(){
-
+        if(pieEntryList.size() != 0) {
+            pieEntryList.clear();
+        }
         for (int i = 0; i < einnahmen.size(); i++) {
             pieEntryList.add(new PieEntry(betrag.get(i),name.get(i)));
 
@@ -119,7 +121,16 @@ public class Dashboard extends AppCompatActivity implements IObserver{
 
     @Override
     public void update() {
-        ausgabenList = verwaltung.getAusgaben();
+        einnahmen = verwaltung.getEinnahmen();
+        name = new ArrayList<>();
+        betrag = new ArrayList<>();
+        datum = new ArrayList<>();
+        kategorie = new ArrayList<>();
+        wiederkehrend = new ArrayList<>();
+        erstelleListen();
+        erstellePieChart();
+        pieChart.setData(pieData);
+        pieChart.invalidate();
         // Einnahmen wurde überschrieben. Der PieChart kann jetzt nochmal neu aufgebaut / aktualisiert werden
 
     }
