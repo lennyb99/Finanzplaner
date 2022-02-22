@@ -49,12 +49,12 @@ public class MainActivity extends AppCompatActivity {
         DB.db.initHighesIds();
 
         //DB TESTS
-        DB.einnahmekategorie.insertEinnahmekategorie(new Einnahmekategorie("Einahmekategorie1"));
-        DB.einnahmekategorie.insertEinnahmekategorie(new Einnahmekategorie("Einahmekategorie2"));
-        DB.einnahmekategorie.insertEinnahmekategorie(new Einnahmekategorie("Einahmekategorie3"));
-        DB.ausgabekategorie.insertAusgabekategorie(new Ausgabekategorie("Ausgabekategorie1"));
-        DB.ausgabekategorie.insertAusgabekategorie(new Ausgabekategorie("Ausgabekategorie2"));
-        DB.ausgabekategorie.insertAusgabekategorie(new Ausgabekategorie("Ausgabekategorie3"));
+        DB.einnahmekategorie.insertEinnahmekategorie(new Einnahmekategorie("Beruf"));
+        DB.einnahmekategorie.insertEinnahmekategorie(new Einnahmekategorie("Nebenberuf"));
+        DB.einnahmekategorie.insertEinnahmekategorie(new Einnahmekategorie("Taschengeld"));
+        DB.ausgabekategorie.insertAusgabekategorie(new Ausgabekategorie("Miete"));
+        DB.ausgabekategorie.insertAusgabekategorie(new Ausgabekategorie("Essen"));
+        DB.ausgabekategorie.insertAusgabekategorie(new Ausgabekategorie("Events"));
 
         //DB.einnahme.insertEinnahme(new Einnahme("Job1", 235.2f, false, new Einnahmekategorie("Einahmekategorie1")));
         //DB.einnahme.insertEinnahme(new Einnahme("Job2", 235.2f, false, new Einnahmekategorie("Einahmekategorie2")));

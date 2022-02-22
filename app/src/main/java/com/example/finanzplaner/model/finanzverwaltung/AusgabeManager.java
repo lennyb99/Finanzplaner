@@ -21,8 +21,13 @@ public class AusgabeManager {
         DB.ausgabe.insertAusgabe(ausgabe);
     }
 
-    public static void delAusgabe(String name){
-
+    public static void delAusgabe(int id){
+        for (int i = 0; i<ausgaben.size();i++) {
+            if(ausgaben.get(i).getId() == id){
+                ausgaben.remove(i);
+            }
+        }
+        DB.ausgabe.deleteAusgabe(id);
     }
 
     public static List<Ausgabe> getAusgaben() {
