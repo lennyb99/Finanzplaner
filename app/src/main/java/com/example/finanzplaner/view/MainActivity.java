@@ -22,7 +22,10 @@ import com.example.finanzplaner.model.finanzverwaltung.Einnahme;
 import com.example.finanzplaner.model.finanzverwaltung.Einnahmekategorie;
 import com.example.finanzplaner.model.finanzverwaltung.ViewManager;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -43,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         EinnahmeManager einnahmeManager = new EinnahmeManager();
 
 
+
         //DB Setup
         DB.db = Room.databaseBuilder(getApplicationContext(), DB.class, "FinanzplanerDatabase").allowMainThreadQueries().build();
         DB.db.daoSetup();
@@ -51,7 +55,6 @@ public class MainActivity extends AppCompatActivity {
         //DB TESTS
         DB.einnahmekategorie.insertEinnahmekategorie(new Einnahmekategorie("Job"));
         DB.einnahmekategorie.deleteEinnahmekategorie("Job");
-
 
 
         startActivity(new Intent(MainActivity.this,Dashboard.class).putExtra("Verwaltung", verwaltung));

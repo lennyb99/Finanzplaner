@@ -140,4 +140,6 @@ public class Verwaltung implements IObservable, Serializable {
         return gewichtungen;
     }
 
+
+
 }
