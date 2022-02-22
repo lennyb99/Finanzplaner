@@ -17,6 +17,9 @@ public interface EinnahmeDao {
     @Insert
     public void insertEinnahme(Einnahme e);
 
+    @Query("SELECT * FROM income_table WHERE id = :id")
+    public int getEinnahme(int id);
+
     @Delete
     public void deleteEinnahme(Einnahme e);
 

@@ -15,7 +15,7 @@ import java.util.List;
 public interface AusgabekategorieDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    public void insertAusgabekateogrie(Ausgabekategorie a);
+    public void insertAusgabekategorie(Ausgabekategorie a);
 
     @Delete
     public void deleteAusgabekateogrie(Ausgabekategorie a);

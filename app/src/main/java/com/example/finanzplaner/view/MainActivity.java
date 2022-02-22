@@ -53,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
         DB.db.initHighesIds();
 
         //DB TESTS
-
         DB.einnahmekategorie.insertEinnahmekategorie(new Einnahmekategorie("Einahmekategorie1"));
         DB.einnahmekategorie.insertEinnahmekategorie(new Einnahmekategorie("Einahmekategorie2"));
         DB.einnahmekategorie.insertEinnahmekategorie(new Einnahmekategorie("Einahmekategorie3"));
