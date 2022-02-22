@@ -42,7 +42,7 @@ public class KategorieTests {
     }
 
     @Test
-    public void insertDelete() {
+    public void insert() {
         assertEquals(ekDao.getAllEinnahmekategorien().size(), 0);
         assertEquals(akDao.getAllAusgabekategorien().size(), 0);
 
@@ -67,7 +67,33 @@ public class KategorieTests {
         assertEquals(el.size(), 3);
         assertEquals(al.size(), 3);
 
+        assertEquals(el.get(0).getName(), ek1.getName());
+        assertNotEquals(el.get(1).getName(), ek1.getName());
 
+        assertEquals(ak2.getName(), al.get(1).getName());
+    }
+
+    @Test
+    public void delete() {
+        Einnahmekategorie ek1 = new Einnahmekategorie("Einnahmekategorie1");
+        Einnahmekategorie ek2 = new Einnahmekategorie("Einnahmekategorie3");
+        Ausgabekategorie ak1 = new Ausgabekategorie("Ausgabekategorie1");
+        Ausgabekategorie ak2 = new Ausgabekategorie("Ausgabekategorie2");
+        ekDao.insertEinnahmekategorie(ek1);
+        ekDao.insertEinnahmekategorie(ek2);
+        akDao.insertAusgabekategorie(ak1);
+        akDao.insertAusgabekategorie(ak2);
+
+        ekDao.deleteEinnahmekategorie(ek1);
+        List<Einnahmekategorie> eL = ekDao.getAllEinnahmekategorien();
+        assertNotEquals(ek1.getName(), eL.get(0).getName());
+        assertEquals(ek2.getName(), eL.get(0).getName());
+
+        List<Ausgabekategorie> aL = akDao.getAllAusgabekategorien();
+        akDao.deleteAusgabekategorie("Ausgabekategorie1");
+        akDao.deleteAusgabekategorie("Ausgabekategorie2");
+        aL = akDao.getAllAusgabekategorien();
+        assertTrue(aL.isEmpty());
     }
 
 }

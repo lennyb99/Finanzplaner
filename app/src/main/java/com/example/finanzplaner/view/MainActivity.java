@@ -35,17 +35,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         //Instanziierung von Verwaltung
-
         Verwaltung verwaltung = new Verwaltung();
         ViewManager viewManager = new ViewManager();
         EinnahmekategorieManager einnahmekategorieManager = new EinnahmekategorieManager();
         AusgabekategorieManager ausgabekategorieManager = new AusgabekategorieManager();
         AusgabeManager ausgabeManager = new AusgabeManager();
         EinnahmeManager einnahmeManager = new EinnahmeManager();
-
-
 
         //DB Setup
         DB.db = Room.databaseBuilder(getApplicationContext(), DB.class, "FinanzplanerDatabase").allowMainThreadQueries().build();
