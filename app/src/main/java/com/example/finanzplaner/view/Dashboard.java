@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.finanzplaner.R;
 import com.example.finanzplaner.controller.DashboardController;
@@ -38,6 +40,7 @@ public class Dashboard extends AppCompatActivity implements IObserver{
     FloatingActionButton eintraegeHinzufuegen;
     FloatingActionButton diagrammDetailButton;
     FloatingActionButton eintraegeLoeschenButton;
+    TextView bilanzText;
     ArrayList<String> name;
     ArrayList<Float> betrag;
     ArrayList<LocalDate> datum;
@@ -56,6 +59,7 @@ public class Dashboard extends AppCompatActivity implements IObserver{
         verwaltung.anmelden(this);
         ausgabeGewichtungen = verwaltung.getKategoriegewichtungen();
 
+
         einnahmen = (verwaltung.getEinnahmen());
         name = new ArrayList<>();
         betrag = new ArrayList<>();
@@ -64,10 +68,15 @@ public class Dashboard extends AppCompatActivity implements IObserver{
         wiederkehrend = new ArrayList<>();
         erstelleListen();
 
+
+
         eintraegeHinzufuegen = (FloatingActionButton) findViewById(R.id.hinzufuegen);
         diagrammDetailButton = (FloatingActionButton) findViewById(R.id.diagrammdetail_button);
         eintraegeLoeschenButton = (FloatingActionButton) findViewById(R.id.loeschen);
+        bilanzText = (TextView) findViewById(R.id.bilanz);
         dbController = new DashboardController(this);
+
+        bilanzText.setText(String.valueOf(verwaltung.getBilanz()));
 
         pieChart = findViewById(R.id.pieChart);
         pieChart.setUsePercentValues(true);
@@ -138,6 +147,7 @@ public class Dashboard extends AppCompatActivity implements IObserver{
         kategorie = new ArrayList<>();
         wiederkehrend = new ArrayList<>();
         ausgabeGewichtungen = verwaltung.getKategoriegewichtungen();
+        bilanzText.setText(String.valueOf(verwaltung.getBilanz()));
         erstelleListen();
         erstellePieChartE();
         pieChart.setData(pieData);
