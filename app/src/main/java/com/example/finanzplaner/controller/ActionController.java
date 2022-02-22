@@ -14,6 +14,7 @@ public class ActionController {
 
     FloatingActionButton ausgabeButton;
     FloatingActionButton einnahmeButton;
+    FloatingActionButton zurueckButton;
 
     public ActionController(Action action){
 
@@ -21,6 +22,7 @@ public class ActionController {
 
         ausgabeButton = actionView.getAusgabeButton();
         einnahmeButton = actionView.getEinnahmeButton();
+        zurueckButton = actionView.getZurueckButton();
 
         ausgabeButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,6 +35,12 @@ public class ActionController {
             @Override
             public void onClick(View view) {
                 actionView.startNewActivity(EinnahmeView.class);
+            }
+        });
+        zurueckButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                actionView.finish();
             }
         });
 
