@@ -36,6 +36,8 @@ public class AusgabeController implements Controller{
     private String nameWert;
     private String kategorieWert;
 
+
+    public AusgabeController(){}
     public AusgabeController(AusgabeView aV, Verwaltung verwaltung){
         ausgabeView = aV;
         this.verwaltung= verwaltung;
@@ -97,7 +99,7 @@ public class AusgabeController implements Controller{
 
     }
 
-    private boolean ueberpruefeDatumEingabe(String datum){
+    public boolean ueberpruefeDatumEingabe(String datum){
         String regex = "^[0-9]{4}-(1[0-2]|0[1-9])-(3[01]|[12][0-9]|0[1-9])$";
 
         Pattern pattern = Pattern.compile(regex);
@@ -108,6 +110,6 @@ public class AusgabeController implements Controller{
 
     @Override
     public void schickeDatenAnModel() {
-
+        // Ist leer gelassen, da dass Daten schicken im Listener bei Knopfdruck betätigt wird.
     }
 }

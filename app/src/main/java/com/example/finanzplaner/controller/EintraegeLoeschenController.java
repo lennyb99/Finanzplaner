@@ -22,6 +22,8 @@ public class EintraegeLoeschenController {
     Button einnahmenButton;
     FloatingActionButton zurueckButton;
 
+
+    public EintraegeLoeschenController(){}
     public EintraegeLoeschenController(EintraegeLoeschen eintraegeLoeschen){
         this.eintraegeLoeschen = eintraegeLoeschen;
 
@@ -57,7 +59,7 @@ public class EintraegeLoeschenController {
 
     }
 
-    private int getIdFromString(String str){
+    public int getIdFromString(String str){
         String newId = "";
         for(int i = 0; i<str.length();i++){
             if(str.charAt(i) != ';'){
