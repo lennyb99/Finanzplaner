@@ -20,6 +20,9 @@ public interface AusgabekategorieDao {
     @Delete
     public void deleteAusgabekateogrie(Ausgabekategorie a);
 
+    @Query("DELETE FROM expenseCateogries_table WHERE name = :name")
+    public void deleteAusgabekategorie(String name);
+
     @Update
     public void updateAusgabekateogrie(Ausgabekategorie a);
 

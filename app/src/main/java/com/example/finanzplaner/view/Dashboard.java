@@ -71,6 +71,7 @@ public class Dashboard extends AppCompatActivity implements IObserver{
         pieData = new PieData(pieDataSet);
         pieChart.setData(pieData);
         pieChart.invalidate();
+        pieChart.getDescription().setEnabled(false);
     }
 
     private void erstelleListen() {

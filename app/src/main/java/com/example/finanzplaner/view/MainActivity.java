@@ -22,7 +22,10 @@ import com.example.finanzplaner.model.finanzverwaltung.Einnahme;
 import com.example.finanzplaner.model.finanzverwaltung.Einnahmekategorie;
 import com.example.finanzplaner.model.finanzverwaltung.ViewManager;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -43,38 +46,16 @@ public class MainActivity extends AppCompatActivity {
         EinnahmeManager einnahmeManager = new EinnahmeManager();
 
 
+
         //DB Setup
         DB.db = Room.databaseBuilder(getApplicationContext(), DB.class, "FinanzplanerDatabase").allowMainThreadQueries().build();
         DB.db.daoSetup();
+        DB.db.initHighesIds();
 
         //DB TESTS
-        /*
-        Einnahme e1 = new Einnahme("Gehalt1", 25.5f, false, new Einnahmekategorie("Job"));
-        Einnahme e2 = new Einnahme("Gehalt2", 25.5f, false, new Einnahmekategorie("Job"));
-        Einnahme e3 = new Einnahme("Gehalt3", 25.5f, false, new Einnahmekategorie("Job"));
-        Einnahme e4 = new Einnahme("Gehalt4", 25.5f, false, new Einnahmekategorie("Job"));
-        Log.v("EinnahmeTEST", e1.toString());
-        Log.v("EinnahmeTEST", e2.toString());
-        Log.v("EinnahmeTEST", e3.toString());
-        Log.v("EinnahmeTEST", e4.toString());
-        DB.einnahme.insertEinnahme(e1);
-        DB.einnahme.insertEinnahme(e2);
-        DB.einnahme.insertEinnahme(e3);
-        DB.einnahme.insertEinnahme(e4);
-        Log.v("EinnahmeTEST", e1.toString());
-        Log.v("EinnahmeTEST", e2.toString());
-        Log.v("EinnahmeTEST", e3.toString());
-        Log.v("EinnahmeTEST", e4.toString());
-        List<Einnahme> ld = DB.einnahme.getAllEinnahmen();
-        ld.forEach(einnahme -> {
-            Log.v("EinnahmeTEST2", einnahme.toString());
+        DB.einnahmekategorie.insertEinnahmekategorie(new Einnahmekategorie("Job"));
+        DB.einnahmekategorie.deleteEinnahmekategorie("Job");
 
-        });
-        ld.forEach(einnahme -> {
-            Log.v("EinnahmeTEST2", einnahme.toString());
-
-        });
-        */
 
         startActivity(new Intent(MainActivity.this,Dashboard.class).putExtra("Verwaltung", verwaltung));
 

@@ -14,16 +14,22 @@ import java.util.List;
 @Dao
 public interface EinnahmeDao {
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert
     public void insertEinnahme(Einnahme e);
 
     @Delete
     public void deleteEinnahme(Einnahme e);
+
+    @Query("DELETE FROM income_table WHERE id = :id")
+    public void deleteEinnahme(int id);
 
     @Update
     public void updateEinnahme(Einnahme e);
 
     @Query("SELECT * FROM income_table")
     public List<Einnahme> getAllEinnahmen();
+
+    @Query("SELECT MAX(id) from income_table")
+    public int getHighestId();
 
 }

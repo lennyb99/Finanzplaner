@@ -6,13 +6,14 @@ import android.widget.Button;
 import com.example.finanzplaner.view.Action;
 import com.example.finanzplaner.view.AusgabeView;
 import com.example.finanzplaner.view.EinnahmeView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class ActionController {
 
     Action actionView;
 
-    Button ausgabeButton;
-    Button einnahmeButton;
+    FloatingActionButton ausgabeButton;
+    FloatingActionButton einnahmeButton;
 
     public ActionController(Action action){
 

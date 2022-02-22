@@ -3,12 +3,14 @@ package com.example.finanzplaner.model.finanzverwaltung;
 import androidx.annotation.NonNull;
 import androidx.room.PrimaryKey;
 
+import com.example.finanzplaner.db.DB;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public abstract class Eintrag {
 
-    @PrimaryKey(autoGenerate = true) @NonNull
+    @PrimaryKey @NonNull
     private int id;
     private String name;
     private float betrag;

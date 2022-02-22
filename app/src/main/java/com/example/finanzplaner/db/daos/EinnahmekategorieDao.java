@@ -20,6 +20,9 @@ public interface EinnahmekategorieDao {
     @Delete
     public void deleteEinnahmekategorie(Einnahmekategorie e);
 
+    @Query("DELETE FROM incomeCategories_table WHERE name = :name")
+    public void deleteEinnahmekategorie(String name);
+
     @Update
     public void updateEinnahmekategorie(Einnahmekategorie e);
 
