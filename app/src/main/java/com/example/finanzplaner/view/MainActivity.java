@@ -56,21 +56,28 @@ public class MainActivity extends AppCompatActivity {
         DB.einnahmekategorie.insertEinnahmekategorie(new Einnahmekategorie("Einahmekategorie1"));
         DB.einnahmekategorie.insertEinnahmekategorie(new Einnahmekategorie("Einahmekategorie2"));
         DB.einnahmekategorie.insertEinnahmekategorie(new Einnahmekategorie("Einahmekategorie3"));
-        DB.einnahmekategorie.insertEinnahmekategorie(new Einnahmekategorie("Einahmekategorie4"));
         DB.ausgabekategorie.insertAusgabekategorie(new Ausgabekategorie("Ausgabekategorie1"));
         DB.ausgabekategorie.insertAusgabekategorie(new Ausgabekategorie("Ausgabekategorie2"));
         DB.ausgabekategorie.insertAusgabekategorie(new Ausgabekategorie("Ausgabekategorie3"));
-        DB.ausgabekategorie.insertAusgabekategorie(new Ausgabekategorie("Ausgabekategorie4"));
 
-        DB.einnahme.insertEinnahme(new Einnahme("Job1", 235.2f, false, new Einnahmekategorie("Einahmekategorie1")));
-        DB.einnahme.insertEinnahme(new Einnahme("Job2", 235.2f, false, new Einnahmekategorie("Einahmekategorie2")));
-        DB.einnahme.insertEinnahme(new Einnahme("Job3", 235.2f, false, new Einnahmekategorie("Einahmekategorie3")));
+        //DB.einnahme.insertEinnahme(new Einnahme("Job1", 235.2f, false, new Einnahmekategorie("Einahmekategorie1")));
+        //DB.einnahme.insertEinnahme(new Einnahme("Job2", 235.2f, false, new Einnahmekategorie("Einahmekategorie2")));
+        //DB.einnahme.insertEinnahme(new Einnahme("Job3", 235.2f, false, new Einnahmekategorie("Einahmekategorie3")));
 
-        DB.ausgabe.insertAusgabe(new Ausgabe("AKs1", 323.4f, false, new Ausgabekategorie("Ausgabekategorie1")));
-        DB.ausgabe.insertAusgabe(new Ausgabe("AKs2", 323.4f, false, new Ausgabekategorie("Ausgabekategorie2")));
-        DB.ausgabe.insertAusgabe(new Ausgabe("AKs3", 32.4f, false, new Ausgabekategorie("Ausgabekategorie3")));
+        //DB.ausgabe.insertAusgabe(new Ausgabe("AKs1", 323.4f, false, new Ausgabekategorie("Ausgabekategorie1")));
+        //DB.ausgabe.insertAusgabe(new Ausgabe("AKs2", 323.4f, false, new Ausgabekategorie("Ausgabekategorie2")));
+        //DB.ausgabe.insertAusgabe(new Ausgabe("AKs3", 32.4f, false, new Ausgabekategorie("Ausgabekategorie3")));
+
+        EinnahmekategorieManager.setEinnahmekategorieList(DB.einnahmekategorie.getAllEinnahmekategorien());
+        AusgabekategorieManager.setAusgabekategorieList(DB.ausgabekategorie.getAllAusgabekategorien());
+        EinnahmeManager.receiveEinnahmenFromDB(DB.einnahme.getAllEinnahmen());
+        AusgabeManager.receiveAusgabenFromDB(DB.ausgabe.getAllAusgaben());
+
 
         startActivity(new Intent(MainActivity.this,Dashboard.class).putExtra("Verwaltung", verwaltung));
+
+
+
 
     }
 

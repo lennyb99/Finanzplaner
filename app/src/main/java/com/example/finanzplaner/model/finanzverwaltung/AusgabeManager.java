@@ -33,5 +33,13 @@ public class AusgabeManager {
         AusgabeManager.ausgaben = ausgaben;
     }
 
+    public static void receiveAusgabenFromDB(List<Ausgabe> ausgabenDB){
+        for (Ausgabe ausgabe : ausgabenDB) {
+            ausgaben.add(ausgabe);
+        }
+
+
+    }
+
 
 }
