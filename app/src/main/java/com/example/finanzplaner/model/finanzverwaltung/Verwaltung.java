@@ -121,7 +121,16 @@ public class Verwaltung implements IObservable, Serializable {
         return EinnahmekategorieManager.findEinnahmekategorie(name);
     }
 
-
+    public List<Eintrag> getEintraege(){
+        List<Eintrag> list = new ArrayList<>();
+        for (Einnahme einnahme: EinnahmeManager.getEinnahmen() ) {
+            list.add(einnahme);
+        }
+        for (Ausgabe ausgabe: AusgabeManager.getAusgaben() ) {
+            list.add(ausgabe);
+        }
+        return list;
+    }
 
 
 
