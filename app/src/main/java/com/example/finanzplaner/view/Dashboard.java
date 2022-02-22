@@ -8,6 +8,7 @@ import android.os.Bundle;
 import com.example.finanzplaner.R;
 import com.example.finanzplaner.controller.DashboardController;
 import com.example.finanzplaner.model.finanzverwaltung.Ausgabe;
+import com.example.finanzplaner.model.finanzverwaltung.Ausgabekategorie;
 import com.example.finanzplaner.model.finanzverwaltung.Einnahme;
 import com.example.finanzplaner.model.finanzverwaltung.Einnahmekategorie;
 import com.example.finanzplaner.model.finanzverwaltung.Verwaltung;
@@ -21,6 +22,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class Dashboard extends AppCompatActivity implements IObserver{
 
@@ -40,6 +42,8 @@ public class Dashboard extends AppCompatActivity implements IObserver{
     ArrayList<LocalDate> datum;
     ArrayList<Einnahmekategorie> kategorie;
     ArrayList<Boolean> wiederkehrend;
+    Map<Ausgabekategorie,Float> ausgabeGewichtungen;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +53,7 @@ public class Dashboard extends AppCompatActivity implements IObserver{
 
         verwaltung = (Verwaltung) getIntent().getSerializableExtra("Verwaltung");
         verwaltung.anmelden(this);
+        ausgabeGewichtungen = verwaltung.getKategoriegewichtungen();
 
         einnahmen = (verwaltung.getEinnahmen());
         name = new ArrayList<>();
@@ -58,20 +63,21 @@ public class Dashboard extends AppCompatActivity implements IObserver{
         wiederkehrend = new ArrayList<>();
         erstelleListen();
 
-
         eintraegeHinzufuegen = (FloatingActionButton) findViewById(R.id.hinzufuegen);
         diagrammDetailButton = (FloatingActionButton) findViewById(R.id.diagrammdetail_button);
         dbController = new DashboardController(this);
 
         pieChart = findViewById(R.id.pieChart);
         pieChart.setUsePercentValues(true);
-        erstellePieChart();
-        PieDataSet pieDataSet = new PieDataSet(pieEntryList,"country");
+        erstellePieChartE();
+        PieDataSet pieDataSet = new PieDataSet(pieEntryList,"");
         pieDataSet.setColors(ColorTemplate.PASTEL_COLORS);
         pieData = new PieData(pieDataSet);
         pieChart.setData(pieData);
-        pieChart.invalidate();
         pieChart.getDescription().setEnabled(false);
+        pieChart.invalidate();
+
+
     }
 
     private void erstelleListen() {
@@ -99,12 +105,11 @@ public class Dashboard extends AppCompatActivity implements IObserver{
         }
     }
 
-    private void erstellePieChart(){
-        if(pieEntryList.size() != 0) {
-            pieEntryList.clear();
-        }
-        for (int i = 0; i < einnahmen.size(); i++) {
-            pieEntryList.add(new PieEntry(betrag.get(i),name.get(i)));
+    private void erstellePieChartE(){
+
+        for (Ausgabekategorie ak :ausgabeGewichtungen.keySet()) {
+            pieEntryList.add(new PieEntry(ausgabeGewichtungen.get(ak),ak.getName()));
+
 
         }
 
@@ -128,8 +133,9 @@ public class Dashboard extends AppCompatActivity implements IObserver{
         datum = new ArrayList<>();
         kategorie = new ArrayList<>();
         wiederkehrend = new ArrayList<>();
+        ausgabeGewichtungen = verwaltung.getKategoriegewichtungen();
         erstelleListen();
-        erstellePieChart();
+        erstellePieChartE();
         pieChart.setData(pieData);
         pieChart.invalidate();
         // Einnahmen wurde überschrieben. Der PieChart kann jetzt nochmal neu aufgebaut / aktualisiert werden
