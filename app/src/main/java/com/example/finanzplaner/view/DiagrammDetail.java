@@ -91,7 +91,7 @@ public class DiagrammDetail extends AppCompatActivity implements IObserver{
         pieData = new PieData(pieDataSet);
         pieChart.setData(pieData);
         pieChart.getDescription().setEnabled(false);
-
+        pieChart.setDrawEntryLabels(false);
         pieChart.invalidate();
 
     }
